@@ -23,7 +23,6 @@ import java.util.Map;
 
 import org.apache.commons.math.complex.Complex;
 import org.apache.commons.math.stat.descriptive.SummaryStatistics;
-import org.apache.commons.math.stat.descriptive.moment.Variance;
 import org.eclipse.dawnsci.analysis.api.dataset.IDataset;
 import org.eclipse.dawnsci.analysis.api.dataset.ILazyDataset;
 import org.eclipse.dawnsci.analysis.api.dataset.Slice;
@@ -3241,15 +3240,19 @@ public abstract class AbstractDataset extends LazyDatasetBase implements Dataset
 	public Number variance() {
 		return variance(false);
 	}
-
+	
 	@Override
 	public Number variance(boolean isDatasetWholePopulation) {
 		SummaryStatistics stats = getStatistics(false);
 
 		if (isDatasetWholePopulation) {
-			Variance newVar = (Variance) stats.getVarianceImpl().copy();
-			newVar.setBiasCorrected(false);
-			return newVar.getResult();
+			throw new UnsupportedOperationException("Calculating Variance on whole population requires Math3");
+			// This version of the code relied on a change (bug fix) in ACM (git
+			// a5949c6f59e741c19fdd25e18540868b9e184806 aka SVN r1206477)
+			// https://git1-us-west.apache.org/repos/asf?p=commons-math.git;a=commit;h=a5949c6f59e741c19fdd25e18540868b9e184806
+			// Variance newVar = (Variance) stats.getVarianceImpl().copy();
+			// newVar.setBiasCorrected(false);
+			// return newVar.getResult();
 		}
 		return stats.getVariance();
 	}
