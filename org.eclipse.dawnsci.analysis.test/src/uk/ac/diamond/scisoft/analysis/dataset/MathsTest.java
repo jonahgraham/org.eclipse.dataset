@@ -16,7 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.math3.complex.Complex;
+import org.apache.commons.math.complex.Complex;
 import org.eclipse.dawnsci.analysis.api.dataset.Slice;
 import org.eclipse.dawnsci.analysis.dataset.impl.ByteDataset;
 import org.eclipse.dawnsci.analysis.dataset.impl.ComplexDoubleDataset;
@@ -32,6 +32,7 @@ import org.eclipse.dawnsci.analysis.dataset.impl.IndexIterator;
 import org.eclipse.dawnsci.analysis.dataset.impl.IntegerDataset;
 import org.eclipse.dawnsci.analysis.dataset.impl.Maths;
 import org.eclipse.dawnsci.analysis.dataset.impl.Random;
+import org.eclipse.dawnsci.analysis.dataset.utils.MissingFromMath2;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -883,7 +884,7 @@ public class MathsTest {
 						while (ita.hasNext() && itb.hasNext()) {
 							Complex z = (Complex) a.getObjectAbs(ita.index);
 							double br = b.getElementDoubleAbs(itb.index);
-							Complex zr = z.divide(br);
+							Complex zr = MissingFromMath2.divide(z, br);
 							if (br == 0) { // CM's implementation is different to NumPy's
 								zr = new Complex(z.getReal() != 0 ? z.getReal() / br : zr.getReal(),
 										z.getImaginary() != 0 ? z.getImaginary() / br : zr.getImaginary());

@@ -9,14 +9,18 @@
 
 package uk.ac.diamond.scisoft.analysis.dataset;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
-import org.apache.commons.math3.complex.Complex;
+import org.apache.commons.math.complex.Complex;
 import org.eclipse.dawnsci.analysis.api.dataset.IDataset;
 import org.eclipse.dawnsci.analysis.api.dataset.Slice;
 import org.eclipse.dawnsci.analysis.dataset.impl.AbstractDataset;
@@ -1804,7 +1808,7 @@ public class AbstractDatasetTest {
 		a.fill(0L);
 		checkDatasets(a, b, 1e-15, 1e-20);
 
-		a.fill(new Complex(0));
+		a.fill(new Complex(0, 0));
 		checkDatasets(a, b, 1e-15, 1e-20);
 
 		a.fill(DatasetFactory.createFromObject(0));

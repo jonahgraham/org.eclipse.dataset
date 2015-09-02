@@ -9,8 +9,6 @@
 
 package uk.ac.diamond.scisoft.analysis.dataset;
 
-import junit.framework.Assert;
-
 import org.eclipse.dawnsci.analysis.api.dataset.Slice;
 import org.eclipse.dawnsci.analysis.api.dataset.SliceND;
 import org.eclipse.dawnsci.analysis.dataset.impl.Dataset;
@@ -18,6 +16,8 @@ import org.eclipse.dawnsci.analysis.dataset.impl.DatasetFactory;
 import org.eclipse.dawnsci.analysis.dataset.impl.LazyWriteableDataset;
 import org.eclipse.dawnsci.analysis.dataset.impl.Random;
 import org.junit.Test;
+
+import junit.framework.Assert;
 
 public class LazyWriteableDatasetTest {
 
