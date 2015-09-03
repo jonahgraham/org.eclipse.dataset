@@ -13,9 +13,10 @@
 package org.eclipse.dawnsci.analysis.dataset.impl;
 
 
-import org.apache.commons.math3.random.MersenneTwister;
-import org.apache.commons.math3.random.RandomDataGenerator;
-import org.apache.commons.math3.random.RandomGenerator;
+import org.apache.commons.math.random.MersenneTwister;
+import org.apache.commons.math.random.RandomData;
+import org.apache.commons.math.random.RandomDataImpl;
+import org.apache.commons.math.random.RandomGenerator;
 import org.eclipse.dawnsci.analysis.api.dataset.IDataset;
 import org.eclipse.dawnsci.analysis.api.dataset.ILazyDataset;
 import org.eclipse.dawnsci.analysis.api.dataset.SliceND;
@@ -29,7 +30,7 @@ import org.eclipse.dawnsci.analysis.api.monitor.IMonitor;
  */
 public class Random {
 	private final static RandomGenerator generator = new MersenneTwister();
-	private final static RandomDataGenerator prng = new RandomDataGenerator(generator);
+	private final static RandomData prng = new RandomDataImpl(generator);
 
 	/**
 	 * @param seed

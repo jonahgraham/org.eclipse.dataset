@@ -9,7 +9,6 @@
 
 package uk.ac.diamond.scisoft.analysis.dataset;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +19,6 @@ import org.eclipse.dawnsci.analysis.dataset.impl.DoubleDataset;
 import org.junit.Test;
 
 import uk.ac.diamond.scisoft.analysis.DoubleUtils;
-import uk.ac.diamond.scisoft.analysis.io.LoaderFactory;
 
 
 /**
@@ -74,31 +72,33 @@ public class CollectionStatsTest {
 
    @Test
    public void testLarge() throws Exception {
+	   // Disable this test as it has an unresolvable dependency at the moment.
+	   throw new Exception("Test disabled, depends on LoaderFactory.");
 	   
-	   final long start = System.currentTimeMillis();
-	   final List<IDataset> images = new ArrayList<IDataset>(10);
-	   
-	   final File dir = new File(System.getProperty("GDALargeTestFilesLocation")+"/EDFLoaderTest/");
-	   final File[] files = dir.listFiles();
-	   for (int i = 0; i < files.length; i++) {
-		   if (files[i].getName().startsWith("billeA")) {
-			   images.add(LoaderFactory.getData(files[i].getAbsolutePath(), null).getDataset(0));
-		   }
-	   }
-	   
-	   final Dataset median = CollectionStats.median(images);
-	   final long end = System.currentTimeMillis();
-	   if (median.getShape()[0] != 2048) throw new Exception("Median has wrong size!");
-	   if (median.getShape()[1] != 2048) throw new Exception("Median has wrong size!");
-	   
-	   System.out.println("Did median of ten images 2048x2048 in "+((end-start)/1000d)+"s");
-	   
-	   final Dataset mean = CollectionStats.median(images);
-	   final long end1 = System.currentTimeMillis();
-	   if (mean.getShape()[0] != 2048) throw new Exception("Mean has wrong size!");
-	   if (mean.getShape()[1] != 2048) throw new Exception("Mean has wrong size!");
-	   
-	   System.out.println("Did mean of ten images 2048x2048 in "+((end1-end)/1000d)+"s");
+//	   final long start = System.currentTimeMillis();
+//	   final List<IDataset> images = new ArrayList<IDataset>(10);
+//	   
+//	   final File dir = new File(System.getProperty("GDALargeTestFilesLocation")+"/EDFLoaderTest/");
+//	   final File[] files = dir.listFiles();
+//	   for (int i = 0; i < files.length; i++) {
+//		   if (files[i].getName().startsWith("billeA")) {
+//			   images.add(LoaderFactory.getData(files[i].getAbsolutePath(), null).getDataset(0));
+//		   }
+//	   }
+//	   
+//	   final Dataset median = CollectionStats.median(images);
+//	   final long end = System.currentTimeMillis();
+//	   if (median.getShape()[0] != 2048) throw new Exception("Median has wrong size!");
+//	   if (median.getShape()[1] != 2048) throw new Exception("Median has wrong size!");
+//	   
+//	   System.out.println("Did median of ten images 2048x2048 in "+((end-start)/1000d)+"s");
+//	   
+//	   final Dataset mean = CollectionStats.median(images);
+//	   final long end1 = System.currentTimeMillis();
+//	   if (mean.getShape()[0] != 2048) throw new Exception("Mean has wrong size!");
+//	   if (mean.getShape()[1] != 2048) throw new Exception("Mean has wrong size!");
+//	   
+//	   System.out.println("Did mean of ten images 2048x2048 in "+((end1-end)/1000d)+"s");
    }
 
 }

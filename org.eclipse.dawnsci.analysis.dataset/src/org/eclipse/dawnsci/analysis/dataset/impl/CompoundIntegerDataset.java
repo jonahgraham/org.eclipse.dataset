@@ -16,7 +16,7 @@ package org.eclipse.dawnsci.analysis.dataset.impl;
 
 import java.util.Arrays;
 
-import org.apache.commons.math3.complex.Complex;
+import org.apache.commons.math.complex.Complex;
 import org.eclipse.dawnsci.analysis.api.dataset.IDataset;
 import org.eclipse.dawnsci.analysis.api.dataset.Slice;
 

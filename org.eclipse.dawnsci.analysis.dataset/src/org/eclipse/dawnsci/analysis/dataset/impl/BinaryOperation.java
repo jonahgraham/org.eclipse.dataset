@@ -12,7 +12,8 @@
 
 package org.eclipse.dawnsci.analysis.dataset.impl;
 
-import org.apache.commons.math3.complex.Complex;
+import org.apache.commons.math.complex.Complex;
+import org.eclipse.dawnsci.analysis.dataset.utils.MissingFromMath2;
 
 /**
  * Interface to represent a binary operation for implementations over different output domains
@@ -333,7 +334,7 @@ public interface BinaryOperation {
 		@Override
 		public void complexOperate(double[] out, double ra, double ia, double rb, double ib) {
 			Complex c = new Complex(ra, ia);
-			c = ib == 0 ? c.pow(rb) : c.pow(new Complex(rb, ib));
+			c = ib == 0 ? MissingFromMath2.pow(c, rb) : c.pow(new Complex(rb, ib));
 			out[0] = c.getReal();
 			out[1] = c.getImaginary();
 		}

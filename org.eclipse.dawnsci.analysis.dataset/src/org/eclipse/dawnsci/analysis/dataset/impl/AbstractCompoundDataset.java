@@ -17,8 +17,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import org.apache.commons.math3.complex.Complex;
-import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
+import org.apache.commons.math.complex.Complex;
+import org.apache.commons.math.stat.descriptive.SummaryStatistics;
 import org.eclipse.dawnsci.analysis.api.dataset.IDataset;
 import org.eclipse.dawnsci.analysis.api.dataset.Slice;
 import org.eclipse.dawnsci.analysis.api.dataset.SliceND;

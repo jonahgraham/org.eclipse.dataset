@@ -17,10 +17,11 @@ package org.eclipse.dawnsci.analysis.dataset.impl;
 
 import java.util.Arrays;
 
-import org.apache.commons.math3.complex.Complex;
-import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
+import org.apache.commons.math.complex.Complex;
+import org.apache.commons.math.stat.descriptive.SummaryStatistics;
 import org.eclipse.dawnsci.analysis.api.dataset.IDataset;
 import org.eclipse.dawnsci.analysis.api.dataset.Slice;
+import org.eclipse.dawnsci.analysis.dataset.utils.MissingFromMath2;
 
 
 /**
@@ -896,7 +897,7 @@ public class ComplexDoubleDataset extends CompoundDoubleDataset { // CLASS_TYPE
 			final double r2 = bds.getElementDoubleAbs(0);
 			if (!bds.isComplex() || bds.getElementDoubleAbs(1) == 0) {
 				while (it.hasNext()) {
-					final Complex zd = new Complex(data[it.index], data[it.index + 1]).pow(r2);
+					final Complex zd = MissingFromMath2.pow(new Complex(data[it.index], data[it.index + 1]), r2);
 					data[it.index]     = zd.getReal(); // ADD_CAST
 					data[it.index + 1] = zd.getImaginary(); // ADD_CAST
 				}
@@ -920,7 +921,7 @@ public class ComplexDoubleDataset extends CompoundDoubleDataset { // CLASS_TYPE
 				}
 			} else {
 				while (it.hasNext()) {
-					final Complex zd = new Complex(it.aDouble, data[it.aIndex + 1]).pow(it.bDouble);
+					final Complex zd = MissingFromMath2.pow(new Complex(it.aDouble, data[it.aIndex + 1]), it.bDouble);
 					data[it.aIndex]     = zd.getReal(); // ADD_CAST
 					data[it.aIndex + 1] = zd.getImaginary(); // ADD_CAST
 				}

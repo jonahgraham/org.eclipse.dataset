@@ -17,9 +17,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.TreeMap;
 
-import org.apache.commons.math3.complex.Complex;
-import org.apache.commons.math3.stat.descriptive.moment.Kurtosis;
-import org.apache.commons.math3.stat.descriptive.moment.Skewness;
+import org.apache.commons.math.complex.Complex;
+import org.apache.commons.math.stat.descriptive.moment.Kurtosis;
+import org.apache.commons.math.stat.descriptive.moment.Skewness;
 
 
 /**
