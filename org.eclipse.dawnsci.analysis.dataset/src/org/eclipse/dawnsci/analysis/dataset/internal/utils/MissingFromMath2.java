@@ -25,13 +25,6 @@ public class MissingFromMath2 {
 	}
 
 	/**
-	 * Simulate Complex Complex.divide(double) in Math3
-	 */
-	public static Complex divide(Complex c, double x) {
-		return c.divide(new Complex(x, 0));
-	}
-
-	/**
 	 * Simulate boolean EigenDecomposition.hasComplexEigenvalues() in Math3
 	 */
 	public static boolean hasComplexEigenvalues(EigenDecomposition e) {
