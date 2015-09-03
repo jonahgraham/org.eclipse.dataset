@@ -2,7 +2,6 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension-point id="operation" name="Operation" schema="schema/operation.exsd"/>
-   <extension-point id="peakfinder" name="PeakFinder" schema="schema/peakfinder.exsd"/>
    <extension
          point="org.eclipse.dawnsci.analysis.classloader">
       <bundle
