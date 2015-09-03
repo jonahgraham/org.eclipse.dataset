@@ -34,7 +34,7 @@ import org.apache.commons.math.linear.RealMatrix;
 import org.apache.commons.math.linear.RealVector;
 import org.apache.commons.math.linear.SingularValueDecomposition;
 import org.apache.commons.math.linear.SingularValueDecompositionImpl;
-import org.eclipse.dawnsci.analysis.dataset.utils.MissingFromMath2;
+import org.eclipse.dawnsci.analysis.dataset.internal.utils.MissingFromMath2;
 
 
 public class LinearAlgebra {

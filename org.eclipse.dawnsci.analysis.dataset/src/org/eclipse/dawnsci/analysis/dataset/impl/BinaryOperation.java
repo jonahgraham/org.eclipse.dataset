@@ -13,7 +13,7 @@
 package org.eclipse.dawnsci.analysis.dataset.impl;
 
 import org.apache.commons.math.complex.Complex;
-import org.eclipse.dawnsci.analysis.dataset.utils.MissingFromMath2;
+import org.eclipse.dawnsci.analysis.dataset.internal.utils.MissingFromMath2;
 
 /**
  * Interface to represent a binary operation for implementations over different output domains

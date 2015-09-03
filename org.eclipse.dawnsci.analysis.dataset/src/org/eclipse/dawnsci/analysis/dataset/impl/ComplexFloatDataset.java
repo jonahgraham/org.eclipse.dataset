@@ -21,7 +21,7 @@ import org.apache.commons.math.complex.Complex;
 import org.apache.commons.math.stat.descriptive.SummaryStatistics;
 import org.eclipse.dawnsci.analysis.api.dataset.IDataset;
 import org.eclipse.dawnsci.analysis.api.dataset.Slice;
-import org.eclipse.dawnsci.analysis.dataset.utils.MissingFromMath2;
+import org.eclipse.dawnsci.analysis.dataset.internal.utils.MissingFromMath2;
 
 
 /**
