@@ -23,7 +23,6 @@ import org.eclipse.dawnsci.analysis.dataset.impl.Dataset;
 import org.eclipse.dawnsci.analysis.dataset.impl.DatasetFactory;
 import org.eclipse.dawnsci.analysis.dataset.impl.DatasetUtils;
 import org.eclipse.dawnsci.analysis.dataset.impl.DoubleDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.FFT;
 import org.eclipse.dawnsci.analysis.dataset.impl.LinearAlgebra;
 import org.eclipse.dawnsci.analysis.dataset.impl.Maths;
 import org.eclipse.dawnsci.analysis.dataset.impl.Random;
@@ -721,30 +720,6 @@ public class NumpyExamples {
 
     	Dataset x = LinearAlgebra.calcConjugateGradient(a, s);
     	System.out.println("x is " + x);
-    }
-    
-    /**Fourier transform of a
-     * fft(a)                       fft(a)
-     */
-    @Test
-    public void fft() {
-    	
-    	Dataset    a = Random.rand(new int[]{100, 100});
-    	Dataset  fft = FFT.fft(a);
-    	System.out.println("The fft is "+fft);
-    }
-    
-    
-    /**
-     * inverse Fourier transform of a
-     * ifft(a)                       ifft(a)
-     * 
-     */
-    @Test
-    public void ifft() {
-    	Dataset    a = Random.rand(new int[]{100, 100});
-    	Dataset ifft = FFT.ifft(a);
-    	System.out.println("The ifft is "+ifft);
     }
     
     /**sort the matrix
