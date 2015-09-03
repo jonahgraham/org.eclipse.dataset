@@ -55,11 +55,8 @@ public class ROIUtils {
 			return new RingROIList();
 		else if (SectorROI.class.isAssignableFrom(clazz))
 			return new SectorROIList();
-		// to-do add circular fit
 		else if (CircularROI.class.isAssignableFrom(clazz))
 			return new CircularROIList();
-		else if (EllipticalFitROI.class.isAssignableFrom(clazz))
-			return new EllipticalFitROIList();
 		else if (EllipticalROI.class.isAssignableFrom(clazz))
 			return new EllipticalROIList();
 		else if (ParabolicROI.class.isAssignableFrom(clazz))

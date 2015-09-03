@@ -14,9 +14,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.dawnsci.analysis.api.roi.IROI;
-import org.eclipse.dawnsci.analysis.dataset.roi.CircularFitROI;
 import org.eclipse.dawnsci.analysis.dataset.roi.CircularROI;
-import org.eclipse.dawnsci.analysis.dataset.roi.EllipticalFitROI;
 import org.eclipse.dawnsci.analysis.dataset.roi.EllipticalROI;
 import org.eclipse.dawnsci.analysis.dataset.roi.FreeDrawROI;
 import org.eclipse.dawnsci.analysis.dataset.roi.GridROI;
@@ -170,33 +168,6 @@ public class ROIBeanFactory {
 			eroibean.setAngle(eroi.getAngle());
 			return eroibean;
 
-		} else if(roiClass == CircularFitROI.class){
-			CircularFitROI croi = (CircularFitROI) roi;
-			CircularFitROIBean croibean = new CircularFitROIBean();
-			croibean.setName(name);
-			croibean.setRadius(croi.getRadius());
-			croibean.setStartPoint(croi.getPoint());
-			List<double[]> points = new ArrayList<double[]>();
-			for (IROI p: croi.getPoints()) {
-				points.add(p.getPoint());
-			}
-			croibean.setPoints(points);
-			return croibean;
-
-		} else if(roiClass == EllipticalFitROI.class){
-			EllipticalFitROI eroi = (EllipticalFitROI) roi;
-			EllipticalFitROIBean eroibean = new EllipticalFitROIBean();
-			eroibean.setName(name);
-			eroibean.setStartPoint(eroi.getPoint());
-			eroibean.setSemiAxes(eroi.getSemiAxes());
-			eroibean.setAngle(eroi.getAngle());
-			List<double[]> points = new ArrayList<double[]>();
-			for (IROI p: eroi.getPoints()) {
-				points.add(p.getPoint());
-			}
-			eroibean.setPoints(points);
-			return eroibean;
-
 		} else if(roiClass == ParabolicROI.class){
 			ParabolicROI proi = (ParabolicROI) roi;
 			ParabolicROIBean proibean = new ParabolicROIBean();
@@ -341,33 +312,6 @@ public class ROIBeanFactory {
 			croi.setSemiaxes(cbean.getSemiAxes());
 			return croi;
 
-			
-		} else if(beanClass == CircularFitROIBean.class){
-			CircularFitROIBean cbean = (CircularFitROIBean)bean;
-			Iterator<double[]> it = cbean.getPoints().iterator();
-			PolylineROI poly = new PolylineROI();
-			while (it.hasNext()) {
-				double[] point = it.next();
-				poly.insertPoint(point);
-			}
-			CircularFitROI croi = new CircularFitROI(poly);
-			croi.setName(cbean.getName());
-			return croi;
-
-			
-		} else if(beanClass == EllipticalFitROIBean.class){
-			EllipticalFitROIBean cbean = (EllipticalFitROIBean)bean;
-			Iterator<double[]> it = cbean.getPoints().iterator();
-			PolylineROI poly = new PolylineROI();
-			while (it.hasNext()) {
-				double[] point = it.next();
-				poly.insertPoint(point);
-			}
-			EllipticalFitROI eroi = new EllipticalFitROI(poly);
-			eroi.setName(cbean.getName());
-			eroi.setSemiaxes(cbean.getSemiAxes());
-			eroi.setAngle(cbean.getAngle());
-			return eroi;
 			
 		} else if(beanClass == ParabolicROIBean.class){
 			ParabolicROIBean cbean = (ParabolicROIBean)bean;
