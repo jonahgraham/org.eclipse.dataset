@@ -145,6 +145,14 @@ public class Metadata implements IMetadata {
 				for (String k : metadata.keySet()) {
 					Serializable v = metadata.get(k);
 					if (v != null) {
+						// TODO: Note that there is a dependency on org.apache.commons.lang that is only used for
+						// accessing SerializationUtils. In reality, the serialize call really is just:
+						// try (ObjectOutputStream out = new ObjectOutputStream(outputStream)) {
+						//    out.writeObject(v);
+						// } finally {
+						//   out.close();
+						// }
+						// and deserialize is similarly simple.
 						SerializationUtils.serialize(v, os);
 						Serializable nv = (Serializable) SerializationUtils.deserialize(os.toByteArray());
 						os.reset();
