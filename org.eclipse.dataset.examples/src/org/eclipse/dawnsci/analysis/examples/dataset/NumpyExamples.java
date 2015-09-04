@@ -15,17 +15,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.eclipse.dawnsci.analysis.api.dataset.IDataset;
-import org.eclipse.dawnsci.analysis.api.dataset.Slice;
-import org.eclipse.dawnsci.analysis.dataset.impl.BooleanDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.Comparisons;
-import org.eclipse.dawnsci.analysis.dataset.impl.Dataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.DatasetFactory;
-import org.eclipse.dawnsci.analysis.dataset.impl.DatasetUtils;
-import org.eclipse.dawnsci.analysis.dataset.impl.DoubleDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.LinearAlgebra;
-import org.eclipse.dawnsci.analysis.dataset.impl.Maths;
-import org.eclipse.dawnsci.analysis.dataset.impl.Random;
+import org.eclipse.dataset.BooleanDataset;
+import org.eclipse.dataset.Comparisons;
+import org.eclipse.dataset.Dataset;
+import org.eclipse.dataset.DatasetFactory;
+import org.eclipse.dataset.DatasetUtils;
+import org.eclipse.dataset.DoubleDataset;
+import org.eclipse.dataset.IDataset;
+import org.eclipse.dataset.LinearAlgebra;
+import org.eclipse.dataset.Maths;
+import org.eclipse.dataset.Random;
+import org.eclipse.dataset.Slice;
 import org.junit.Before;
 import org.junit.Test;
 

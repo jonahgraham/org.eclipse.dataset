@@ -12,10 +12,10 @@ package uk.ac.diamond.scisoft.analysis.dataset;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.dawnsci.analysis.api.dataset.IDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.CollectionStats;
-import org.eclipse.dawnsci.analysis.dataset.impl.Dataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.DoubleDataset;
+import org.eclipse.dataset.CollectionStats;
+import org.eclipse.dataset.Dataset;
+import org.eclipse.dataset.DoubleDataset;
+import org.eclipse.dataset.IDataset;
 import org.junit.Test;
 
 import uk.ac.diamond.scisoft.analysis.DoubleUtils;

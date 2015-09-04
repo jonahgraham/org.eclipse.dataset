@@ -16,10 +16,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.dawnsci.analysis.dataset.impl.Dataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.DatasetFactory;
-import org.eclipse.dawnsci.analysis.dataset.impl.IndexIterator;
-import org.eclipse.dawnsci.analysis.dataset.impl.SliceIterator;
+import org.eclipse.dataset.Dataset;
+import org.eclipse.dataset.DatasetFactory;
+import org.eclipse.dataset.IndexIterator;
+import org.eclipse.dataset.SliceIterator;
 import org.junit.Test;
 
 /**

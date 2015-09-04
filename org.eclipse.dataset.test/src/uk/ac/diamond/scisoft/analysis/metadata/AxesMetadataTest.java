@@ -16,15 +16,15 @@ import static org.junit.Assert.fail;
 
 import java.util.Arrays;
 
-import org.eclipse.dawnsci.analysis.api.dataset.IDataset;
-import org.eclipse.dawnsci.analysis.api.dataset.ILazyDataset;
-import org.eclipse.dawnsci.analysis.api.dataset.Slice;
-import org.eclipse.dawnsci.analysis.api.metadata.AxesMetadata;
-import org.eclipse.dawnsci.analysis.dataset.impl.Dataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.DoubleDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.Random;
-import org.eclipse.dawnsci.analysis.dataset.metadata.AxesMetadataImpl;
-import org.eclipse.dawnsci.analysis.dataset.metadata.ErrorMetadataImpl;
+import org.eclipse.dataset.Dataset;
+import org.eclipse.dataset.DoubleDataset;
+import org.eclipse.dataset.IDataset;
+import org.eclipse.dataset.ILazyDataset;
+import org.eclipse.dataset.Random;
+import org.eclipse.dataset.Slice;
+import org.eclipse.dataset.metadata.AxesMetadata;
+import org.eclipse.dataset.metadata.AxesMetadataImpl;
+import org.eclipse.dataset.metadata.ErrorMetadataImpl;
 import org.junit.Test;
 
 public class AxesMetadataTest {

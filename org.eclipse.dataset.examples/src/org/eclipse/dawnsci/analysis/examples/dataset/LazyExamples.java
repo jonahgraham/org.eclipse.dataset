@@ -13,11 +13,11 @@ package org.eclipse.dawnsci.analysis.examples.dataset;
 
 import java.util.Arrays;
 
-import org.eclipse.dawnsci.analysis.api.dataset.IDataset;
-import org.eclipse.dawnsci.analysis.api.dataset.ILazyDataset;
-import org.eclipse.dawnsci.analysis.api.dataset.Slice;
-import org.eclipse.dawnsci.analysis.dataset.impl.LazyMaths;
-import org.eclipse.dawnsci.analysis.dataset.impl.Random;
+import org.eclipse.dataset.IDataset;
+import org.eclipse.dataset.ILazyDataset;
+import org.eclipse.dataset.LazyMaths;
+import org.eclipse.dataset.Random;
+import org.eclipse.dataset.Slice;
 import org.junit.Test;
 
 /**

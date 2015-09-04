@@ -11,11 +11,11 @@ package uk.ac.diamond.scisoft.analysis.dataset;
 
 import static org.junit.Assert.assertEquals;
 
-import org.eclipse.dawnsci.analysis.dataset.impl.Dataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.DatasetFactory;
-import org.eclipse.dawnsci.analysis.dataset.impl.DoubleDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.IndexIterator;
-import org.eclipse.dawnsci.analysis.dataset.impl.IntegerDataset;
+import org.eclipse.dataset.Dataset;
+import org.eclipse.dataset.DatasetFactory;
+import org.eclipse.dataset.DoubleDataset;
+import org.eclipse.dataset.IndexIterator;
+import org.eclipse.dataset.IntegerDataset;
 import org.junit.Test;
 
 public class IntegerDatasetTest {

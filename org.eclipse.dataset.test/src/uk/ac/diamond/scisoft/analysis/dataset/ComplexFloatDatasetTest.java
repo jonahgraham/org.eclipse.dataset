@@ -11,10 +11,10 @@ package uk.ac.diamond.scisoft.analysis.dataset;
 
 import static org.junit.Assert.assertEquals;
 
-import org.eclipse.dawnsci.analysis.dataset.impl.ComplexFloatDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.Dataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.IndexIterator;
-import org.eclipse.dawnsci.analysis.dataset.impl.Maths;
+import org.eclipse.dataset.ComplexFloatDataset;
+import org.eclipse.dataset.Dataset;
+import org.eclipse.dataset.IndexIterator;
+import org.eclipse.dataset.Maths;
 import org.junit.Test;
 
 public class ComplexFloatDatasetTest {

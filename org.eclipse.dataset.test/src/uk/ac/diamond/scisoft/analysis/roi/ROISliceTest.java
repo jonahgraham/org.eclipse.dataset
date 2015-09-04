@@ -9,13 +9,13 @@
 
 package uk.ac.diamond.scisoft.analysis.roi;
 
-import org.eclipse.dawnsci.analysis.api.dataset.Slice;
-import org.eclipse.dawnsci.analysis.dataset.impl.Dataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.DatasetFactory;
-import org.eclipse.dawnsci.analysis.dataset.impl.DatasetUtils;
-import org.eclipse.dawnsci.analysis.dataset.roi.LinearROI;
-import org.eclipse.dawnsci.analysis.dataset.roi.ROISliceUtils;
-import org.eclipse.dawnsci.analysis.dataset.roi.RectangularROI;
+import org.eclipse.dataset.Dataset;
+import org.eclipse.dataset.DatasetFactory;
+import org.eclipse.dataset.DatasetUtils;
+import org.eclipse.dataset.Slice;
+import org.eclipse.dataset.roi.LinearROI;
+import org.eclipse.dataset.roi.ROISliceUtils;
+import org.eclipse.dataset.roi.RectangularROI;
 import org.junit.Assert;
 import org.junit.Test;
 

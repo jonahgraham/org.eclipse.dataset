@@ -11,10 +11,10 @@ package uk.ac.diamond.scisoft.analysis.dataset;
 
 import static org.junit.Assert.assertEquals;
 
-import org.eclipse.dawnsci.analysis.dataset.impl.Dataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.DatasetFactory;
-import org.eclipse.dawnsci.analysis.dataset.impl.InterpolatorUtils;
-import org.eclipse.dawnsci.analysis.dataset.impl.Maths;
+import org.eclipse.dataset.Dataset;
+import org.eclipse.dataset.DatasetFactory;
+import org.eclipse.dataset.InterpolatorUtils;
+import org.eclipse.dataset.Maths;
 import org.junit.Test;
 
 public class InterpolatorUtilsTest {

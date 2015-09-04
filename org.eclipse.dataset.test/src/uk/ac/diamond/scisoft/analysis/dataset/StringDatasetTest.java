@@ -11,8 +11,8 @@ package uk.ac.diamond.scisoft.analysis.dataset;
 
 import static org.junit.Assert.assertEquals;
 
-import org.eclipse.dawnsci.analysis.dataset.impl.IndexIterator;
-import org.eclipse.dawnsci.analysis.dataset.impl.StringDataset;
+import org.eclipse.dataset.IndexIterator;
+import org.eclipse.dataset.StringDataset;
 import org.junit.Test;
 
 public class StringDatasetTest {

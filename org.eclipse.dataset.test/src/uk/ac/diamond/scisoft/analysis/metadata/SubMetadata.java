@@ -12,12 +12,12 @@ package uk.ac.diamond.scisoft.analysis.metadata;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.dawnsci.analysis.api.dataset.ILazyDataset;
-import org.eclipse.dawnsci.analysis.api.metadata.MetadataType;
-import org.eclipse.dawnsci.analysis.api.metadata.Sliceable;
-import org.eclipse.dawnsci.analysis.dataset.impl.BooleanDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.DoubleDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.ShortDataset;
+import org.eclipse.dataset.BooleanDataset;
+import org.eclipse.dataset.DoubleDataset;
+import org.eclipse.dataset.ILazyDataset;
+import org.eclipse.dataset.ShortDataset;
+import org.eclipse.dataset.metadata.MetadataType;
+import org.eclipse.dataset.metadata.Sliceable;
 
 public class SubMetadata extends SliceableTestMetadata {
 	@Sliceable

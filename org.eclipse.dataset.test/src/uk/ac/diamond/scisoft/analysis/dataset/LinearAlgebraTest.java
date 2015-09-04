@@ -13,17 +13,17 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.eclipse.dawnsci.analysis.api.dataset.Slice;
-import org.eclipse.dawnsci.analysis.dataset.impl.Dataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.DatasetFactory;
-import org.eclipse.dawnsci.analysis.dataset.impl.DatasetUtils;
-import org.eclipse.dawnsci.analysis.dataset.impl.DoubleDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.FloatDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.IntegerDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.LinearAlgebra;
-import org.eclipse.dawnsci.analysis.dataset.impl.LinearAlgebra.NormOrder;
-import org.eclipse.dawnsci.analysis.dataset.impl.Maths;
-import org.eclipse.dawnsci.analysis.dataset.impl.Random;
+import org.eclipse.dataset.Dataset;
+import org.eclipse.dataset.DatasetFactory;
+import org.eclipse.dataset.DatasetUtils;
+import org.eclipse.dataset.DoubleDataset;
+import org.eclipse.dataset.FloatDataset;
+import org.eclipse.dataset.IntegerDataset;
+import org.eclipse.dataset.LinearAlgebra;
+import org.eclipse.dataset.Maths;
+import org.eclipse.dataset.Random;
+import org.eclipse.dataset.Slice;
+import org.eclipse.dataset.LinearAlgebra.NormOrder;
 import org.junit.Test;
 
 import uk.ac.diamond.scisoft.analysis.TestUtils;

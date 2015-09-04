@@ -14,9 +14,9 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 
-import org.eclipse.dawnsci.analysis.api.dataset.Slice;
-import org.eclipse.dawnsci.analysis.api.dataset.SliceND;
-import org.eclipse.dawnsci.analysis.dataset.impl.SliceNDIterator;
+import org.eclipse.dataset.Slice;
+import org.eclipse.dataset.SliceND;
+import org.eclipse.dataset.SliceNDIterator;
 import org.junit.Test;
 
 /**

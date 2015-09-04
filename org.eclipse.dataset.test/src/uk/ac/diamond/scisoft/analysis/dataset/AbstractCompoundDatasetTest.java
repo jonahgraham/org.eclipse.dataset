@@ -16,19 +16,19 @@ import static org.junit.Assert.fail;
 
 import java.util.Arrays;
 
-import org.eclipse.dawnsci.analysis.dataset.impl.AbstractCompoundDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.AbstractDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.CompoundDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.CompoundDoubleDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.CompoundIntegerDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.Dataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.DatasetFactory;
-import org.eclipse.dawnsci.analysis.dataset.impl.DatasetUtils;
-import org.eclipse.dawnsci.analysis.dataset.impl.IndexIterator;
-import org.eclipse.dawnsci.analysis.dataset.impl.Maths;
-import org.eclipse.dawnsci.analysis.dataset.impl.PositionIterator;
-import org.eclipse.dawnsci.analysis.dataset.impl.RGBDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.Random;
+import org.eclipse.dataset.AbstractCompoundDataset;
+import org.eclipse.dataset.AbstractDataset;
+import org.eclipse.dataset.CompoundDataset;
+import org.eclipse.dataset.CompoundDoubleDataset;
+import org.eclipse.dataset.CompoundIntegerDataset;
+import org.eclipse.dataset.Dataset;
+import org.eclipse.dataset.DatasetFactory;
+import org.eclipse.dataset.DatasetUtils;
+import org.eclipse.dataset.IndexIterator;
+import org.eclipse.dataset.Maths;
+import org.eclipse.dataset.PositionIterator;
+import org.eclipse.dataset.RGBDataset;
+import org.eclipse.dataset.Random;
 import org.junit.Test;
 
 public class AbstractCompoundDatasetTest {

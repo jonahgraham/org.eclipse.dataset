@@ -11,14 +11,14 @@ package uk.ac.diamond.scisoft.analysis.dataset;
 
 import java.util.Arrays;
 
-import org.eclipse.dawnsci.analysis.api.dataset.IDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.Dataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.DatasetUtils;
-import org.eclipse.dawnsci.analysis.dataset.impl.DoubleDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.IntegerDataset;
-import org.eclipse.dawnsci.analysis.dataset.impl.Maths;
-import org.eclipse.dawnsci.analysis.dataset.impl.Random;
-import org.eclipse.dawnsci.analysis.dataset.impl.SummedAreaTable;
+import org.eclipse.dataset.Dataset;
+import org.eclipse.dataset.DatasetUtils;
+import org.eclipse.dataset.DoubleDataset;
+import org.eclipse.dataset.IDataset;
+import org.eclipse.dataset.IntegerDataset;
+import org.eclipse.dataset.Maths;
+import org.eclipse.dataset.Random;
+import org.eclipse.dataset.SummedAreaTable;
 import org.junit.Test;
 
 import uk.ac.diamond.scisoft.analysis.DoubleUtils;

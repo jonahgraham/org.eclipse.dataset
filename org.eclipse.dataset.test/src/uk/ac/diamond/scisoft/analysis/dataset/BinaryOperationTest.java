@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.apache.commons.math.complex.Complex;
-import org.eclipse.dawnsci.analysis.dataset.impl.BinaryOperation;
+import org.eclipse.dataset.BinaryOperation;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;

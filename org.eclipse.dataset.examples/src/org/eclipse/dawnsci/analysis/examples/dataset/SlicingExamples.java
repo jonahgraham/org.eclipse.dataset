@@ -14,12 +14,12 @@ package org.eclipse.dawnsci.analysis.examples.dataset;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.dawnsci.analysis.api.dataset.IDataset;
-import org.eclipse.dawnsci.analysis.api.dataset.ILazyDataset;
-import org.eclipse.dawnsci.analysis.api.dataset.Slice;
-import org.eclipse.dawnsci.analysis.dataset.impl.Random;
-import org.eclipse.dawnsci.analysis.dataset.slicer.SliceVisitor;
-import org.eclipse.dawnsci.analysis.dataset.slicer.Slicer;
+import org.eclipse.dataset.IDataset;
+import org.eclipse.dataset.ILazyDataset;
+import org.eclipse.dataset.Random;
+import org.eclipse.dataset.Slice;
+import org.eclipse.dataset.slicer.SliceVisitor;
+import org.eclipse.dataset.slicer.Slicer;
 import org.junit.Test;
 
 /**
