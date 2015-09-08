@@ -40,6 +40,7 @@ import org.eclipse.dataset.Random;
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.StringDataset;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import uk.ac.diamond.scisoft.analysis.TestUtils;
@@ -1967,6 +1968,7 @@ public class AbstractDatasetTest {
 		}
 	}
 
+	@Ignore("Test disabled, Calculating Variance on whole population requires Math3")
     @Test
     public void testDatasetVariance() {
     	Random.seed(12345);
@@ -1976,5 +1978,14 @@ public class AbstractDatasetTest {
 		double var = ((Number) square.mean()).doubleValue();
 
 		Assert.assertEquals(var, image.variance(true).doubleValue(), var * 1.e-15);
+    }
+
+	// TODO: Remove this test once dataset is upgraded to math3
+	// Check that image.variance(true) raises exception
+    @Test(expected=UnsupportedOperationException.class)
+    public void testDatasetVarianceThrowsException() {
+    	Random.seed(12345);
+		final Dataset image = Maths.multiply(Random.rand(new int[] { 10, 10 }), 1);
+		image.variance(true);
     }
 }

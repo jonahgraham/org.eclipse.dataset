@@ -16,6 +16,7 @@ import org.eclipse.dataset.CollectionStats;
 import org.eclipse.dataset.Dataset;
 import org.eclipse.dataset.DoubleDataset;
 import org.eclipse.dataset.IDataset;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import uk.ac.diamond.scisoft.analysis.DoubleUtils;
@@ -70,11 +71,10 @@ public class CollectionStatsTest {
 	   if (!DoubleUtils.equalsWithinTolerance(mean.getDouble(4), 104, 0.0001)) throw new Exception("Mean not calculated correctly!");  
     }
 
+   // Disable this test as it has an unresolvable dependency at the moment.
+   @Ignore("Test disabled, depends on LoaderFactory.")
    @Test
    public void testLarge() throws Exception {
-	   // Disable this test as it has an unresolvable dependency at the moment.
-	   throw new Exception("Test disabled, depends on LoaderFactory.");
-	   
 //	   final long start = System.currentTimeMillis();
 //	   final List<IDataset> images = new ArrayList<IDataset>(10);
 //	   

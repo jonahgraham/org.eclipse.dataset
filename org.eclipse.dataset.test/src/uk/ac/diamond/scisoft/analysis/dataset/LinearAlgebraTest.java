@@ -24,6 +24,7 @@ import org.eclipse.dataset.Maths;
 import org.eclipse.dataset.Random;
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.LinearAlgebra.NormOrder;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import uk.ac.diamond.scisoft.analysis.TestUtils;
@@ -220,6 +221,7 @@ public class LinearAlgebraTest {
 		assertEquals(0, LinearAlgebra.norm(a, p), 1e-15);
 	}
 
+	@Ignore("Test disabled, eigen decomposition of assymetric matrices not supported yet, requires Math3")
 	@Test
 	public void testDeterminant() {
 		Dataset a = DatasetFactory.createRange(1, 21, 1, Dataset.INT32).reshape(4, 5);
@@ -250,6 +252,7 @@ public class LinearAlgebraTest {
 		TestUtils.assertDatasetEquals(new FloatDataset(new float[]{1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1}, 4, 4), LinearAlgebra.kroneckerProduct(a, b), true, 1e-12, 1e-12);
 	}
 
+	@Ignore("Test disabled, RealMatrix.power requires Apache Commons Math3")
 	@Test
 	public void testPower() {
 		Dataset a = new IntegerDataset(new int[] {0, 1, -1, 0}, 2, 2);
