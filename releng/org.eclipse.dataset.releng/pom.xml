@@ -136,7 +136,6 @@
 
 		<!-- test modules -->
 		<module>../../org.eclipse.dataset.test</module>
-		<module>../../org.eclipse.dataset.examples</module>
 
 		<!-- releng modules -->
 		<module>../org.eclipse.dataset.feature</module>
