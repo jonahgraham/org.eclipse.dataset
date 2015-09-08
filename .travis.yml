@@ -1,0 +1,8 @@
+sudo: false
+language: java
+cache:
+ directories:
+  - $HOME/.m2
+script:
+ - cd releng/org.eclipse.dataset.releng
+ - mvn clean verify
