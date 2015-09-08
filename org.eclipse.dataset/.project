@@ -36,4 +36,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.python.pydev.pythonNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>README.md</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/README.md</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>
