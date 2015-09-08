@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="org.eclipse.dataset.feature" version="1.0.0.qualifier">
+      <category name="Core"/>
+   </feature>
+   <category-def name="Core" label="Dataset">
+      <description>
+         Dataset core components
+      </description>
+   </category-def>
+</site>
