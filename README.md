@@ -17,7 +17,7 @@ The [Eclipse Dataset](https://github.com/jonahkichwacoders/org.eclipse.dataset) 
 
 ## Getting Started
 
-Clone the examples repo and have a look. Browse over to the [examples](https://github.com/jonahkichwacoders/org.eclipse.dataset.examples) repo for more information.
+Clone the examples repository and have a look. Browse over to the [examples](https://github.com/jonahkichwacoders/org.eclipse.dataset.examples) repository for more information.
 
 ## Javadocs
 
