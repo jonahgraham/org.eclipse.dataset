@@ -9,6 +9,8 @@
 	<properties>
 		<tycho.version>0.23.0</tycho.version>
 		<tycho.extras.version>${tycho.version}</tycho.extras.version>
+		<tycho.scmUrl>scm:git:https://github.com/jonahkichwacoders/org.eclipse.dataset.git
+		</tycho.scmUrl>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- set build prefix to I (integration) for now -->
@@ -59,6 +61,11 @@
 						<artifactId>tycho-buildtimestamp-jgit</artifactId>
 						<version>${tycho.extras.version}</version>
 					</dependency>
+					<dependency>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-sourceref-jgit</artifactId>
+						<version>${tycho.extras.version}</version>
+					</dependency>
 				</dependencies>
 				<configuration>
 					<timestampProvider>jgit</timestampProvider>
@@ -67,6 +74,10 @@
 						pom.xml
 					</jgit.ignore>
 					<format>${build-prefix}yyyyMMddHHmm</format>
+					<sourceReferences>
+						<generate>true</generate>
+					</sourceReferences>
+
 				</configuration>
 			</plugin>
 
