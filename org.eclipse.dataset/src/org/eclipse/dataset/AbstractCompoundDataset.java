@@ -17,8 +17,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import org.apache.commons.math.complex.Complex;
-import org.apache.commons.math.stat.descriptive.SummaryStatistics;
+import org.apache.commons.math3.complex.Complex;
+import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
 
 /**
  * Generic container class for data that is compound in nature

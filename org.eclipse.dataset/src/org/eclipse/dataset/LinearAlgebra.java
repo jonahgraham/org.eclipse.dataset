@@ -15,25 +15,19 @@ package org.eclipse.dataset;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.commons.math.complex.Complex;
-import org.apache.commons.math.linear.Array2DRowRealMatrix;
-import org.apache.commons.math.linear.ArrayRealVector;
-import org.apache.commons.math.linear.CholeskyDecomposition;
-import org.apache.commons.math.linear.CholeskyDecompositionImpl;
-import org.apache.commons.math.linear.EigenDecomposition;
-import org.apache.commons.math.linear.EigenDecompositionImpl;
-import org.apache.commons.math.linear.LUDecomposition;
-import org.apache.commons.math.linear.LUDecompositionImpl;
-import org.apache.commons.math.linear.MatrixUtils;
-import org.apache.commons.math.linear.NonSquareMatrixException;
-import org.apache.commons.math.linear.NotPositiveDefiniteMatrixException;
-import org.apache.commons.math.linear.NotSymmetricMatrixException;
-import org.apache.commons.math.linear.QRDecomposition;
-import org.apache.commons.math.linear.QRDecompositionImpl;
-import org.apache.commons.math.linear.RealMatrix;
-import org.apache.commons.math.linear.RealVector;
-import org.apache.commons.math.linear.SingularValueDecomposition;
-import org.apache.commons.math.linear.SingularValueDecompositionImpl;
+import org.apache.commons.math3.complex.Complex;
+import org.apache.commons.math3.linear.Array2DRowRealMatrix;
+import org.apache.commons.math3.linear.ArrayRealVector;
+import org.apache.commons.math3.linear.CholeskyDecomposition;
+import org.apache.commons.math3.linear.ConjugateGradient;
+import org.apache.commons.math3.linear.EigenDecomposition;
+import org.apache.commons.math3.linear.LUDecomposition;
+import org.apache.commons.math3.linear.MatrixUtils;
+import org.apache.commons.math3.linear.QRDecomposition;
+import org.apache.commons.math3.linear.RealLinearOperator;
+import org.apache.commons.math3.linear.RealMatrix;
+import org.apache.commons.math3.linear.RealVector;
+import org.apache.commons.math3.linear.SingularValueDecomposition;
 import org.eclipse.dataset.internal.utils.MissingFromMath2;
 
 
@@ -558,15 +552,14 @@ public class LinearAlgebra {
 	 * @return a ** n
 	 */
 	public static Dataset power(Dataset a, int n) {
-		throw new UnsupportedOperationException("RealMatrix.power requires Apache Commons Math3");
-		// if (n < 0) {
-		// LUDecomposition lud = new LUDecompositionImpl(createRealMatrix(a));
-		// return createDataset(lud.getSolver().getInverse().power(-n));
-		// }
-		// Dataset p = createDataset(createRealMatrix(a).power(n));
-		// if (!a.hasFloatingPointElements())
-		// return p.cast(a.getDtype());
-		// return p;
+		if (n < 0) {
+			LUDecomposition lud = new LUDecomposition(createRealMatrix(a));
+			return createDataset(lud.getSolver().getInverse().power(-n));
+		}
+		Dataset p = createDataset(createRealMatrix(a).power(n));
+		if (!a.hasFloatingPointElements())
+			return p.cast(a.getDtype());
+		return p;
 	}
 
 	/**
@@ -1040,7 +1033,7 @@ public class LinearAlgebra {
 	 * @return array of singular values
 	 */
 	public static double[] calcSingularValues(Dataset a) {
-		SingularValueDecomposition svd = new SingularValueDecompositionImpl(createRealMatrix(a));
+		SingularValueDecomposition svd = new SingularValueDecomposition(createRealMatrix(a));
 		return svd.getSingularValues();
 	}
 
@@ -1051,7 +1044,7 @@ public class LinearAlgebra {
 	 * @return array of U - orthogonal matrix, s - singular values vector, V - orthogonal matrix
 	 */
 	public static Dataset[] calcSingularValueDecomposition(Dataset a) {
-		SingularValueDecomposition svd = new SingularValueDecompositionImpl(createRealMatrix(a));
+		SingularValueDecomposition svd = new SingularValueDecomposition(createRealMatrix(a));
 		return new Dataset[] {createDataset(svd.getU()), new DoubleDataset(svd.getSingularValues()),
 				createDataset(svd.getV())};
 	}
@@ -1062,7 +1055,7 @@ public class LinearAlgebra {
 	 * @return pseudo-inverse
 	 */
 	public static Dataset calcPseudoInverse(Dataset a) {
-		SingularValueDecomposition svd = new SingularValueDecompositionImpl(createRealMatrix(a));
+		SingularValueDecomposition svd = new SingularValueDecomposition(createRealMatrix(a));
 		return createDataset(svd.getSolver().getInverse());
 	}
 
@@ -1072,7 +1065,7 @@ public class LinearAlgebra {
 	 * @return effective numerical rank of matrix
 	 */
 	public static int calcMatrixRank(Dataset a) {
-		SingularValueDecomposition svd = new SingularValueDecompositionImpl(createRealMatrix(a));
+		SingularValueDecomposition svd = new SingularValueDecomposition(createRealMatrix(a));
 		return svd.getRank();
 	}
 
@@ -1082,7 +1075,7 @@ public class LinearAlgebra {
 	 * @return condition number
 	 */
 	public static double calcConditionNumber(Dataset a) {
-		SingularValueDecomposition svd = new SingularValueDecompositionImpl(createRealMatrix(a));
+		SingularValueDecomposition svd = new SingularValueDecomposition(createRealMatrix(a));
 		return svd.getConditionNumber();
 	}
 
@@ -1091,7 +1084,7 @@ public class LinearAlgebra {
 	 * @return determinant of dataset
 	 */
 	public static double calcDeterminant(Dataset a) {
-		EigenDecomposition evd = new EigenDecompositionImpl(createRealMatrix(a), /* unused in Maths2 */ 0);
+		EigenDecomposition evd = new EigenDecomposition(createRealMatrix(a));
 		return evd.getDeterminant();
 	}
 
@@ -1100,7 +1093,7 @@ public class LinearAlgebra {
 	 * @return dataset of eigenvalues (can be double or complex double)
 	 */
 	public static Dataset calcEigenvalues(Dataset a) {
-		EigenDecomposition evd = new EigenDecompositionImpl(createRealMatrix(a), /* unused in Maths2 */ 0);
+		EigenDecomposition evd = new EigenDecomposition(createRealMatrix(a));
 		double[] rev = evd.getRealEigenvalues();
 
 		if (MissingFromMath2.hasComplexEigenvalues(evd)) {
@@ -1116,7 +1109,7 @@ public class LinearAlgebra {
 	 * @return array of D eigenvalues (can be double or complex double) and V eigenvectors
 	 */
 	public static Dataset[] calcEigenDecomposition(Dataset a) {
-		EigenDecomposition evd = new EigenDecompositionImpl(createRealMatrix(a), /* unused in Maths2 */ 0);
+		EigenDecomposition evd = new EigenDecomposition(createRealMatrix(a));
 		Dataset[] results = new Dataset[2];
 
 		double[] rev = evd.getRealEigenvalues();
@@ -1136,7 +1129,7 @@ public class LinearAlgebra {
 	 * @return array of Q and R
 	 */
 	public static Dataset[] calcQRDecomposition(Dataset a) {
-		QRDecomposition qrd = new QRDecompositionImpl(createRealMatrix(a));
+		QRDecomposition qrd = new QRDecomposition(createRealMatrix(a));
 		return new Dataset[] {createDataset(qrd.getQT()).getTransposedView(), createDataset(qrd.getR())};
 	}
 
@@ -1146,7 +1139,7 @@ public class LinearAlgebra {
 	 * @return array of L, U and P
 	 */
 	public static Dataset[] calcLUDecomposition(Dataset a) {
-		LUDecomposition lud = new LUDecompositionImpl(createRealMatrix(a));
+		LUDecomposition lud = new LUDecomposition(createRealMatrix(a));
 		return new Dataset[] {createDataset(lud.getL()), createDataset(lud.getU()),
 				createDataset(lud.getP())};
 	}
@@ -1157,7 +1150,7 @@ public class LinearAlgebra {
 	 * @return inverse
 	 */
 	public static Dataset calcInverse(Dataset a) {
-		LUDecomposition lud = new LUDecompositionImpl(createRealMatrix(a));
+		LUDecomposition lud = new LUDecomposition(createRealMatrix(a));
 		return createDataset(lud.getSolver().getInverse());
 	}
 
@@ -1168,7 +1161,7 @@ public class LinearAlgebra {
 	 * @return x
 	 */
 	public static Dataset solve(Dataset a, Dataset v) {
-		LUDecomposition lud = new LUDecompositionImpl(createRealMatrix(a));
+		LUDecomposition lud = new LUDecomposition(createRealMatrix(a));
 		if (v.getRank() == 1) {
 			RealVector x = createRealVector(v);
 			return createDataset(lud.getSolver().solve(x));
@@ -1185,7 +1178,7 @@ public class LinearAlgebra {
 	 * @return x
 	 */
 	public static Dataset solveSVD(Dataset a, Dataset v) {
-		SingularValueDecomposition svd = new SingularValueDecompositionImpl(createRealMatrix(a));
+		SingularValueDecomposition svd = new SingularValueDecomposition(createRealMatrix(a));
 		if (v.getRank() == 1) {
 			RealVector x = createRealVector(v);
 			return createDataset(svd.getSolver().solve(x));
@@ -1200,14 +1193,7 @@ public class LinearAlgebra {
 	 * @return L
 	 */
 	public static Dataset calcCholeskyDecomposition(Dataset a) {
-		CholeskyDecomposition cd;
-		try {
-			cd = new CholeskyDecompositionImpl(createRealMatrix(a));
-		} catch (NotPositiveDefiniteMatrixException | NotSymmetricMatrixException e) {
-			// In Apache Commons Math3 these exceptions are changed to a runtime exception
-			// so re-throw it here.
-			throw new RuntimeException(e);
-		}
+		CholeskyDecomposition cd = new CholeskyDecomposition(createRealMatrix(a));
 		return createDataset(cd.getL());
 	}
 
@@ -1232,9 +1218,8 @@ public class LinearAlgebra {
 	 * @return solution of A^-1 v by conjugate gradient method
 	 */
 	public static Dataset calcConjugateGradient(Dataset a, Dataset v, int maxIterations, double delta) {
-		throw new UnsupportedOperationException("calcConjugateGradient requires Apache Commons Math3");
-		// ConjugateGradient cg = new ConjugateGradient(maxIterations, delta, false);
-		// return createDataset(cg.solve((RealLinearOperator) createRealMatrix(a), createRealVector(v)));
+		 ConjugateGradient cg = new ConjugateGradient(maxIterations, delta, false);
+		 return createDataset(cg.solve((RealLinearOperator) createRealMatrix(a), createRealVector(v)));
 	}
 
 	private static RealMatrix createRealMatrix(Dataset a) {

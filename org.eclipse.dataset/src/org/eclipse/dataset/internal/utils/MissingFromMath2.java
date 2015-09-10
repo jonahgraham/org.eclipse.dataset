@@ -9,8 +9,8 @@
 
 package org.eclipse.dataset.internal.utils;
 
-import org.apache.commons.math.complex.Complex;
-import org.apache.commons.math.linear.EigenDecomposition;
+import org.apache.commons.math3.complex.Complex;
+import org.apache.commons.math3.linear.EigenDecomposition;
 
 /**
  * A few methods are missing in math vs math3, these are implemented in MissingFromMath2. At the point that math3 is

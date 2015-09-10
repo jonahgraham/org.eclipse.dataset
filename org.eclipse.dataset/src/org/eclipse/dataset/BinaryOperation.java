@@ -12,7 +12,7 @@
 
 package org.eclipse.dataset;
 
-import org.apache.commons.math.complex.Complex;
+import org.apache.commons.math3.complex.Complex;
 import org.eclipse.dataset.internal.utils.MissingFromMath2;
 
 /**

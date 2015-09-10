@@ -20,7 +20,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
-import org.apache.commons.math.complex.Complex;
+import org.apache.commons.math3.complex.Complex;
 import org.eclipse.dataset.AbstractDataset;
 import org.eclipse.dataset.BooleanDataset;
 import org.eclipse.dataset.Comparisons;
@@ -1968,7 +1968,6 @@ public class AbstractDatasetTest {
 		}
 	}
 
-	@Ignore("Test disabled, Calculating Variance on whole population requires Math3")
     @Test
     public void testDatasetVariance() {
     	Random.seed(12345);
@@ -1978,14 +1977,5 @@ public class AbstractDatasetTest {
 		double var = ((Number) square.mean()).doubleValue();
 
 		Assert.assertEquals(var, image.variance(true).doubleValue(), var * 1.e-15);
-    }
-
-	// TODO: Remove this test once dataset is upgraded to math3
-	// Check that image.variance(true) raises exception
-    @Test(expected=UnsupportedOperationException.class)
-    public void testDatasetVarianceThrowsException() {
-    	Random.seed(12345);
-		final Dataset image = Maths.multiply(Random.rand(new int[] { 10, 10 }), 1);
-		image.variance(true);
     }
 }

@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.apache.commons.math.complex.Complex;
+import org.apache.commons.math3.complex.Complex;
 import org.eclipse.dataset.BinaryOperation;
 import org.junit.Test;
 import org.junit.runner.RunWith;

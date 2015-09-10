@@ -21,8 +21,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.math.complex.Complex;
-import org.apache.commons.math.stat.descriptive.SummaryStatistics;
+import org.apache.commons.math3.complex.Complex;
+import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
+import org.apache.commons.math3.stat.descriptive.moment.Variance;
 import org.eclipse.dataset.metadata.ErrorMetadata;
 import org.eclipse.dataset.metadata.ErrorMetadataImpl;
 import org.eclipse.dataset.metadata.MetadataType;
@@ -3241,13 +3242,9 @@ public abstract class AbstractDataset extends LazyDatasetBase implements Dataset
 		SummaryStatistics stats = getStatistics(false);
 
 		if (isDatasetWholePopulation) {
-			throw new UnsupportedOperationException("Calculating Variance on whole population requires Math3");
-			// This version of the code relied on a change (bug fix) in ACM (git
-			// a5949c6f59e741c19fdd25e18540868b9e184806 aka SVN r1206477)
-			// https://git1-us-west.apache.org/repos/asf?p=commons-math.git;a=commit;h=a5949c6f59e741c19fdd25e18540868b9e184806
-			// Variance newVar = (Variance) stats.getVarianceImpl().copy();
-			// newVar.setBiasCorrected(false);
-			// return newVar.getResult();
+			 Variance newVar = (Variance) stats.getVarianceImpl().copy();
+			 newVar.setBiasCorrected(false);
+			 return newVar.getResult();
 		}
 		return stats.getVariance();
 	}

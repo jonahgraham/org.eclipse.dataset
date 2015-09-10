@@ -16,7 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.math.complex.Complex;
+import org.apache.commons.math3.complex.Complex;
 import org.eclipse.dataset.ByteDataset;
 import org.eclipse.dataset.ComplexDoubleDataset;
 import org.eclipse.dataset.CompoundDataset;
