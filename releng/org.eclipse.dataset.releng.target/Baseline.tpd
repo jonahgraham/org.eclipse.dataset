@@ -1,0 +1,28 @@
+// To edit the target platforms use following eclipse plugin:
+//   https://github.com/mbarbero/fr.obeo.releng.targetplatform
+//
+// It converts *.tpd files to *.target files intelligently and has some additional features.
+
+target "Baseline" with source requirements
+
+location "http://jonahkichwacoders.github.io/org.eclipse.dataset/repository/" datasets {
+	// The org.eclipse.dataset package
+	org.eclipse.dataset.feature.feature.group lazy
+}
+
+location "http://download.eclipse.org/releases/mars/" eclipse-mars {
+	org.eclipse.platform.feature.group
+}
+
+location "http://download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository/" eclipse-orbit {
+	// Core requirements
+	org.apache.commons.math [2.1.0,3.0.0)
+	org.apache.commons.lang [2.6.0,3.0.0)
+	org.slf4j.api [1.7.2,2.0.0)
+
+	// Testing requirements
+	org.hamcrest.core [1.3.0,2.0.0)
+	org.hamcrest.library [1.3.0,2.0.0)
+	org.junit [4.12.0,5.0.0)
+	org.mockito [1.9.5,2.0.0)
+}
