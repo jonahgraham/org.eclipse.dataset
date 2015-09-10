@@ -28,7 +28,6 @@ import org.apache.commons.math3.linear.RealLinearOperator;
 import org.apache.commons.math3.linear.RealMatrix;
 import org.apache.commons.math3.linear.RealVector;
 import org.apache.commons.math3.linear.SingularValueDecomposition;
-import org.eclipse.dataset.internal.utils.MissingFromMath2;
 
 
 public class LinearAlgebra {
@@ -1096,7 +1095,7 @@ public class LinearAlgebra {
 		EigenDecomposition evd = new EigenDecomposition(createRealMatrix(a));
 		double[] rev = evd.getRealEigenvalues();
 
-		if (MissingFromMath2.hasComplexEigenvalues(evd)) {
+		if (evd.hasComplexEigenvalues()) {
 			double[] iev = evd.getImagEigenvalues();
 			return new ComplexDoubleDataset(rev, iev);
 		}
@@ -1113,7 +1112,7 @@ public class LinearAlgebra {
 		Dataset[] results = new Dataset[2];
 
 		double[] rev = evd.getRealEigenvalues();
-		if (MissingFromMath2.hasComplexEigenvalues(evd)) {
+		if (evd.hasComplexEigenvalues()) {
 			double[] iev = evd.getImagEigenvalues();
 			results[0] = new ComplexDoubleDataset(rev, iev);
 		} else {

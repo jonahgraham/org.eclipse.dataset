@@ -11,7 +11,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.eclipse.dataset,
  org.eclipse.dataset.coords,
  org.eclipse.dataset.function,
- org.eclipse.dataset.internal.utils;x-internal:=true,
  org.eclipse.dataset.io,
  org.eclipse.dataset.metadata,
  org.eclipse.dataset.roi,
