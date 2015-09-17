@@ -890,7 +890,7 @@ public class LongDataset extends AbstractDataset {
 	@Override
 	public LongDataset iadd(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b);
-		boolean useLong = bds.elementClass().equals(Long.class);
+		boolean useLong = bds.getElementClass().equals(Long.class);
 		if (bds.getSize() == 1) {
 			final IndexIterator it = getIterator();
 			if (useLong) {
@@ -924,7 +924,7 @@ public class LongDataset extends AbstractDataset {
 	@Override
 	public LongDataset isubtract(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b);
-		boolean useLong = bds.elementClass().equals(Long.class);
+		boolean useLong = bds.getElementClass().equals(Long.class);
 		if (bds.getSize() == 1) {
 			final IndexIterator it = getIterator();
 			if (useLong) {
@@ -959,7 +959,7 @@ public class LongDataset extends AbstractDataset {
 	@Override
 	public LongDataset imultiply(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b);
-		boolean useLong = bds.elementClass().equals(Long.class);
+		boolean useLong = bds.getElementClass().equals(Long.class);
 		if (bds.getSize() == 1) {
 			final IndexIterator it = getIterator();
 			if (useLong) {
@@ -993,7 +993,7 @@ public class LongDataset extends AbstractDataset {
 	@Override
 	public LongDataset idivide(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b);
-		boolean useLong = bds.elementClass().equals(Long.class);
+		boolean useLong = bds.getElementClass().equals(Long.class);
 		if (bds.getSize() == 1) {
 			if (useLong) {
 				final long lb = bds.getElementLongAbs(0);
@@ -1049,7 +1049,7 @@ public class LongDataset extends AbstractDataset {
 	@Override
 	public LongDataset iremainder(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b);
-		boolean useLong = bds.elementClass().equals(Long.class);
+		boolean useLong = bds.getElementClass().equals(Long.class);
 		if (bds.getSize() == 1) {
 			if (useLong) {
 				final long lb = bds.getElementLongAbs(0);

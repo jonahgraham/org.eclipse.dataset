@@ -913,7 +913,7 @@ public class DoubleDataset extends AbstractDataset {
 	@Override
 	public DoubleDataset iadd(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b); // NAN_OMIT
-		boolean useLong = bds.elementClass().equals(Long.class); // NAN_OMIT
+		boolean useLong = bds.getElementClass().equals(Long.class); // NAN_OMIT
 		if (bds.getSize() == 1) { // NAN_OMIT
 			final IndexIterator it = getIterator(); // NAN_OMIT
 			if (useLong) { // NAN_OMIT
@@ -947,7 +947,7 @@ public class DoubleDataset extends AbstractDataset {
 	@Override
 	public DoubleDataset isubtract(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b); // NAN_OMIT
-		boolean useLong = bds.elementClass().equals(Long.class); // NAN_OMIT
+		boolean useLong = bds.getElementClass().equals(Long.class); // NAN_OMIT
 		if (bds.getSize() == 1) { // NAN_OMIT
 			final IndexIterator it = getIterator(); // NAN_OMIT
 			if (useLong) { // NAN_OMIT
@@ -982,7 +982,7 @@ public class DoubleDataset extends AbstractDataset {
 	@Override
 	public DoubleDataset imultiply(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b); // NAN_OMIT
-		boolean useLong = bds.elementClass().equals(Long.class); // NAN_OMIT
+		boolean useLong = bds.getElementClass().equals(Long.class); // NAN_OMIT
 		if (bds.getSize() == 1) { // NAN_OMIT
 			final IndexIterator it = getIterator(); // NAN_OMIT
 			if (useLong) { // NAN_OMIT
@@ -1016,7 +1016,7 @@ public class DoubleDataset extends AbstractDataset {
 	@Override
 	public DoubleDataset idivide(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b); // NAN_OMIT
-		boolean useLong = bds.elementClass().equals(Long.class); // NAN_OMIT
+		boolean useLong = bds.getElementClass().equals(Long.class); // NAN_OMIT
 		if (bds.getSize() == 1) { // NAN_OMIT
 			if (useLong) { // NAN_OMIT
 				final long lb = bds.getElementLongAbs(0); // NAN_OMIT
@@ -1077,7 +1077,7 @@ public class DoubleDataset extends AbstractDataset {
 	@Override
 	public DoubleDataset iremainder(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b); // NAN_OMIT
-		boolean useLong = bds.elementClass().equals(Long.class); // NAN_OMIT
+		boolean useLong = bds.getElementClass().equals(Long.class); // NAN_OMIT
 		if (bds.getSize() == 1) { // NAN_OMIT
 			if (useLong) { // NAN_OMIT
 				final long lb = bds.getElementLongAbs(0); // NAN_OMIT

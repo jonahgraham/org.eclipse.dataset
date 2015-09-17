@@ -638,7 +638,7 @@ public class ComplexDoubleDataset extends CompoundDoubleDataset { // CLASS_TYPE
 	@Override
 	public ComplexDoubleDataset iadd(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b);
-		boolean useLong = bds.elementClass().equals(Long.class);
+		boolean useLong = bds.getElementClass().equals(Long.class);
 		if (bds.getSize() == 1) {
 			final IndexIterator it = getIterator();
 			if (useLong) { // note no complex longs
@@ -687,7 +687,7 @@ public class ComplexDoubleDataset extends CompoundDoubleDataset { // CLASS_TYPE
 	@Override
 	public ComplexDoubleDataset isubtract(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b);
-		boolean useLong = bds.elementClass().equals(Long.class);
+		boolean useLong = bds.getElementClass().equals(Long.class);
 		if (bds.getSize() == 1) {
 			final IndexIterator it = getIterator();
 			if (useLong) { // note no complex longs
@@ -736,7 +736,7 @@ public class ComplexDoubleDataset extends CompoundDoubleDataset { // CLASS_TYPE
 	@Override
 	public ComplexDoubleDataset imultiply(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b);
-		boolean useLong = bds.elementClass().equals(Long.class);
+		boolean useLong = bds.getElementClass().equals(Long.class);
 		if (bds.getSize() == 1) {
 			final IndexIterator it = getIterator();
 			if (useLong) { // note no complex longs
@@ -795,7 +795,7 @@ public class ComplexDoubleDataset extends CompoundDoubleDataset { // CLASS_TYPE
 	@Override
 	public ComplexDoubleDataset idivide(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b);
-		boolean useLong = bds.elementClass().equals(Long.class);
+		boolean useLong = bds.getElementClass().equals(Long.class);
 		if (bds.getSize() == 1) {
 			final IndexIterator it = getIterator();
 			if (useLong) { // note no complex longs

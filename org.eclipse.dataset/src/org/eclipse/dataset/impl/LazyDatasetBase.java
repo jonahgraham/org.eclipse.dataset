@@ -67,7 +67,7 @@ public abstract class LazyDatasetBase implements ILazyDataset, Serializable {
 	abstract public int getDtype();
 
 	@Override
-	public Class<?> elementClass() {
+	public Class<?> getElementClass() {
 		return AbstractDataset.elementClass(getDtype());
 	}
 

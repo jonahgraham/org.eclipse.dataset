@@ -26,7 +26,7 @@ public class RunningAverage {
 	 * @param dataset
 	 */
 	public RunningAverage(IDataset dataset) {
-		average = (DoubleDataset) (dataset.elementClass().equals(Double.class) ? DatasetUtils.convertToDataset(dataset).clone()
+		average = (DoubleDataset) (dataset.getElementClass().equals(Double.class) ? DatasetUtils.convertToDataset(dataset).clone()
 				: DatasetUtils.cast(dataset, Dataset.FLOAT64));
 
 		sqAveError = null;

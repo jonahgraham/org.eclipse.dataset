@@ -883,7 +883,7 @@ public class CompoundDoubleDataset extends AbstractCompoundDataset {
 		if (element < 0 || element > isize) {
 			throw new IllegalArgumentException(String.format("Invalid choice of element: %d/%d", element, isize));
 		}
-		if (elementClass() != destination.elementClass()) {
+		if (getElementClass() != destination.getElementClass()) {
 			throw new IllegalArgumentException("Element class of destination does not match this dataset");
 		}
 
@@ -904,7 +904,7 @@ public class CompoundDoubleDataset extends AbstractCompoundDataset {
 		if (element < 0 || element > isize) {
 			throw new IllegalArgumentException(String.format("Invalid choice of element: %d/%d", element, isize));
 		}
-		if (elementClass() != source.elementClass()) {
+		if (getElementClass() != source.getElementClass()) {
 			throw new IllegalArgumentException("Element class of destination does not match this dataset");
 		}
 
@@ -1255,7 +1255,7 @@ public class CompoundDoubleDataset extends AbstractCompoundDataset {
 	@Override
 	public CompoundDoubleDataset iadd(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b);
-		boolean useLong = bds.elementClass().equals(Long.class);
+		boolean useLong = bds.getElementClass().equals(Long.class);
 		int is = bds.getElementsPerItem();
 		if (bds.getSize() == 1) {
 			final IndexIterator it = getIterator();
@@ -1340,7 +1340,7 @@ public class CompoundDoubleDataset extends AbstractCompoundDataset {
 	@Override
 	public CompoundDoubleDataset isubtract(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b);
-		boolean useLong = bds.elementClass().equals(Long.class);
+		boolean useLong = bds.getElementClass().equals(Long.class);
 		int is = bds.getElementsPerItem();
 		if (bds.getSize() == 1) {
 			final IndexIterator it = getIterator();
@@ -1425,7 +1425,7 @@ public class CompoundDoubleDataset extends AbstractCompoundDataset {
 	@Override
 	public CompoundDoubleDataset imultiply(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b);
-		boolean useLong = bds.elementClass().equals(Long.class);
+		boolean useLong = bds.getElementClass().equals(Long.class);
 		int is = bds.getElementsPerItem();
 		if (bds.getSize() == 1) {
 			final IndexIterator it = getIterator();
@@ -1512,7 +1512,7 @@ public class CompoundDoubleDataset extends AbstractCompoundDataset {
 	@Override
 	public CompoundDoubleDataset idivide(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b);
-		boolean useLong = bds.elementClass().equals(Long.class);
+		boolean useLong = bds.getElementClass().equals(Long.class);
 		int is = bds.getElementsPerItem();
 		if (bds.getSize() == 1) {
 			final IndexIterator it = getIterator();
@@ -1632,7 +1632,7 @@ public class CompoundDoubleDataset extends AbstractCompoundDataset {
 	@Override
 	public CompoundDoubleDataset iremainder(final Object b) {
 		Dataset bds = b instanceof Dataset ? (Dataset) b : DatasetFactory.createFromObject(b);
-		boolean useLong = bds.elementClass().equals(Long.class);
+		boolean useLong = bds.getElementClass().equals(Long.class);
 		int is = bds.getElementsPerItem();
 		if (bds.getSize() == 1) {
 			final IndexIterator it = getIterator();

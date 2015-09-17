@@ -1630,7 +1630,7 @@ public class AbstractDatasetTest {
 		final int cis = calc.getElementsPerItem();
 		final int is = Math.max(eis, cis);
 
-		if (expected.elementClass().equals(Boolean.class)) {
+		if (expected.getElementClass().equals(Boolean.class)) {
 			while (at.hasNext() && bt.hasNext()) {
 				for (int j = 0; j < is; j++) {
 					boolean e = j >= eis ? false : expected.getElementBooleanAbs(at.index + j);

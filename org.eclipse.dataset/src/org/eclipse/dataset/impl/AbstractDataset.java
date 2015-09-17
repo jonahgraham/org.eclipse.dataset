@@ -553,7 +553,7 @@ public abstract class AbstractDataset extends LazyDatasetBase implements Dataset
 		} else if (obj instanceof Dataset) {
 			return ((Dataset) obj).getDtype();
 		} else if (obj instanceof ILazyDataset) {
-			dtype = getDTypeFromClass(((ILazyDataset) obj).elementClass(), ((ILazyDataset) obj).getElementsPerItem());
+			dtype = getDTypeFromClass(((ILazyDataset) obj).getElementClass(), ((ILazyDataset) obj).getElementsPerItem());
 		} else {
 			dtype = getDTypeFromClass(obj.getClass());
 		}
@@ -576,7 +576,7 @@ public abstract class AbstractDataset extends LazyDatasetBase implements Dataset
 	public static int getDType(ILazyDataset d) {
 		if (d instanceof Dataset)
 			return ((Dataset) d).getDtype();
-		return getDTypeFromClass(d.elementClass(), d.getElementsPerItem());
+		return getDTypeFromClass(d.getElementClass(), d.getElementsPerItem());
 	}
 
 	/**
@@ -981,13 +981,13 @@ public abstract class AbstractDataset extends LazyDatasetBase implements Dataset
 	}
 
 	@Override
-	public Class<?> elementClass() {
+	public Class<?> getElementClass() {
 		return elementClass(getDtype());
 	}
 
 	@Override
 	public boolean hasFloatingPointElements() {
-		Class<?> cls = elementClass();
+		Class<?> cls = getElementClass();
 		return cls == Float.class || cls == Double.class;
 	}
 
