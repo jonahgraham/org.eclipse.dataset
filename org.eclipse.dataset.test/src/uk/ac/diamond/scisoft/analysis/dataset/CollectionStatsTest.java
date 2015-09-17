@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.dataset.CollectionStats;
-import org.eclipse.dataset.Dataset;
-import org.eclipse.dataset.DoubleDataset;
 import org.eclipse.dataset.IDataset;
+import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.DoubleDataset;
 import org.junit.Ignore;
 import org.junit.Test;
 

@@ -11,10 +11,10 @@ package uk.ac.diamond.scisoft.analysis.dataset;
 
 import static org.junit.Assert.assertEquals;
 
-import org.eclipse.dataset.BooleanDataset;
-import org.eclipse.dataset.Dataset;
 import org.eclipse.dataset.IndexIterator;
 import org.eclipse.dataset.Slice;
+import org.eclipse.dataset.impl.BooleanDataset;
+import org.eclipse.dataset.impl.Dataset;
 import org.junit.Test;
 
 public class BooleanDatasetTest {

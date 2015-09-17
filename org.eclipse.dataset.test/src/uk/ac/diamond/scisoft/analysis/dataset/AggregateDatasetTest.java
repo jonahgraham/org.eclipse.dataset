@@ -15,12 +15,12 @@ import static org.junit.Assert.fail;
 
 import java.util.Arrays;
 
-import org.eclipse.dataset.AggregateDataset;
-import org.eclipse.dataset.Dataset;
-import org.eclipse.dataset.DatasetFactory;
-import org.eclipse.dataset.DatasetUtils;
 import org.eclipse.dataset.ILazyDataset;
 import org.eclipse.dataset.Slice;
+import org.eclipse.dataset.impl.AggregateDataset;
+import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.DatasetFactory;
+import org.eclipse.dataset.impl.DatasetUtils;
 import org.junit.Before;
 import org.junit.Test;
 

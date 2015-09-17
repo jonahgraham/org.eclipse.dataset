@@ -11,14 +11,14 @@ package uk.ac.diamond.scisoft.analysis.dataset;
 
 import static org.junit.Assert.assertEquals;
 
-import org.eclipse.dataset.CompoundDataset;
-import org.eclipse.dataset.CompoundShortDataset;
-import org.eclipse.dataset.Dataset;
-import org.eclipse.dataset.DatasetFactory;
-import org.eclipse.dataset.DoubleDataset;
-import org.eclipse.dataset.FloatDataset;
-import org.eclipse.dataset.RGBDataset;
-import org.eclipse.dataset.ShortDataset;
+import org.eclipse.dataset.impl.CompoundDataset;
+import org.eclipse.dataset.impl.CompoundShortDataset;
+import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.DatasetFactory;
+import org.eclipse.dataset.impl.DoubleDataset;
+import org.eclipse.dataset.impl.FloatDataset;
+import org.eclipse.dataset.impl.RGBDataset;
+import org.eclipse.dataset.impl.ShortDataset;
 import org.junit.Test;
 
 import uk.ac.diamond.scisoft.analysis.TestUtils;

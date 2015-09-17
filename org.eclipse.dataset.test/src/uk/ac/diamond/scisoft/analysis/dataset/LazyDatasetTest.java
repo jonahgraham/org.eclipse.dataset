@@ -9,12 +9,12 @@
 
 package uk.ac.diamond.scisoft.analysis.dataset;
 
-import org.eclipse.dataset.Dataset;
 import org.eclipse.dataset.ILazyDataset;
-import org.eclipse.dataset.LazyDataset;
 import org.eclipse.dataset.Random;
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.SliceND;
+import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.LazyDataset;
 import org.junit.Assert;
 import org.junit.Test;
 

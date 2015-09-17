@@ -18,14 +18,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.dataset.BooleanDataset;
-import org.eclipse.dataset.Dataset;
-import org.eclipse.dataset.DoubleDataset;
 import org.eclipse.dataset.IDataset;
 import org.eclipse.dataset.ILazyDataset;
 import org.eclipse.dataset.Random;
-import org.eclipse.dataset.ShortDataset;
 import org.eclipse.dataset.Slice;
+import org.eclipse.dataset.impl.BooleanDataset;
+import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.DoubleDataset;
+import org.eclipse.dataset.impl.ShortDataset;
 import org.junit.Test;
 
 public class SliceableMetadataTest {

@@ -11,6 +11,8 @@ package org.eclipse.dataset;
 
 import java.util.Arrays;
 
+import org.eclipse.dataset.impl.LazyDynamicDataset;
+
 /**
  * Checks whether shape has changed between waits. Useful for where datasets are being extended.
  * Note, {@link LazyDynamicDataset} already alerts its listeners when its shape is resized

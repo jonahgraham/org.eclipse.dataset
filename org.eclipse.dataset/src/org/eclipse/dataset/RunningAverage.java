@@ -9,6 +9,10 @@
 
 package org.eclipse.dataset;
 
+import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.DatasetUtils;
+import org.eclipse.dataset.impl.DoubleDataset;
+
 /**
  * A running mean class
  */

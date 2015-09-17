@@ -14,11 +14,11 @@ package org.eclipse.dataset.metadata;
 
 import java.io.Serializable;
 
-import org.eclipse.dataset.Dataset;
-import org.eclipse.dataset.DatasetUtils;
 import org.eclipse.dataset.IDataset;
 import org.eclipse.dataset.ILazyDataset;
-import org.eclipse.dataset.Maths;
+import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.DatasetUtils;
+import org.eclipse.dataset.impl.Maths;
 
 /**
  * Implementation of error class

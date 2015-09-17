@@ -9,15 +9,15 @@
 
 package uk.ac.diamond.scisoft.analysis.dataset;
 
-import org.eclipse.dataset.Dataset;
-import org.eclipse.dataset.DatasetFactory;
-import org.eclipse.dataset.LazyWriteableDataset;
 import org.eclipse.dataset.Random;
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.SliceND;
+import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.DatasetFactory;
+import org.eclipse.dataset.impl.LazyWriteableDataset;
+import org.junit.Assert;
 import org.junit.Test;
 
-import junit.framework.Assert;
 
 public class LazyWriteableDatasetTest {
 

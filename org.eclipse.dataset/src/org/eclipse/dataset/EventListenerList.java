@@ -27,7 +27,7 @@ final class EventListenerList {
 	 * @param listener
 	 *            the listener
 	 */
-	public synchronized void addListener(Class c, Object listener) {
+	public synchronized void addListener(Class<?> c, Object listener) {
 		if (listener == null || c == null)
 			throw new IllegalArgumentException();
 
@@ -48,7 +48,7 @@ final class EventListenerList {
 	 *            the type
 	 * @return whether this list contains a listener of type <i>c</i>
 	 */
-	public synchronized boolean containsListener(Class c) {
+	public synchronized boolean containsListener(Class<?> c) {
 		if (array == null)
 			return false;
 		for (int i = 0; i < array.length; i += 2)
@@ -57,22 +57,24 @@ final class EventListenerList {
 		return false;
 	}
 
-	static class TypeIterator implements Iterator {
-		private final Object[] items;
-		private final Class type;
+	static class TypeIterator<T> implements Iterator<T> {
+		private final T[] items;
+		private final Class<T> type;
 		private int index;
 
-		TypeIterator(Object items[], Class type) {
+		TypeIterator(T items[], Class<T> type) {
 			this.items = items;
 			this.type = type;
 		}
 
-		public Object next() {
-			Object result = items[index + 1];
+		@Override
+		public T next() {
+			T result = items[index + 1];
 			index += 2;
 			return result;
 		}
 
+		@Override
 		public boolean hasNext() {
 			if (items == null)
 				return false;
@@ -81,6 +83,7 @@ final class EventListenerList {
 			return index < items.length;
 		}
 
+		@Override
 		public void remove() {
 			throw new UnsupportedOperationException(
 					"Iterator removal not supported"); //$NON-NLS-1$
@@ -94,8 +97,9 @@ final class EventListenerList {
 	 *            the type
 	 * @return an Iterator of all the listeners of type <i>c</i>
 	 */
-	public synchronized Iterator getListeners(final Class listenerType) {
-		return new TypeIterator(array, listenerType);
+	@SuppressWarnings("unchecked")
+	public synchronized <T> Iterator<T> getListeners(final Class<T> listenerType) {
+		return new TypeIterator<T>((T[]) array, listenerType);
 	}
 
 	/**
@@ -106,7 +110,7 @@ final class EventListenerList {
 	 * @param listener
 	 *            the listener
 	 */
-	public synchronized void removeListener(Class c, Object listener) {
+	public synchronized void removeListener(Class<?> c, Object listener) {
 		if (array == null || array.length == 0)
 			return;
 		if (listener == null || c == null)

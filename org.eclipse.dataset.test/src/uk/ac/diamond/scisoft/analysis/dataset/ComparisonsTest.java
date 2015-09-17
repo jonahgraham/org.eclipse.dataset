@@ -11,13 +11,13 @@ package uk.ac.diamond.scisoft.analysis.dataset;
 
 import java.util.List;
 
-import org.eclipse.dataset.BooleanDataset;
-import org.eclipse.dataset.Comparisons;
-import org.eclipse.dataset.ComplexDoubleDataset;
-import org.eclipse.dataset.Dataset;
-import org.eclipse.dataset.DatasetFactory;
-import org.eclipse.dataset.DoubleDataset;
-import org.eclipse.dataset.IntegerDataset;
+import org.eclipse.dataset.impl.BooleanDataset;
+import org.eclipse.dataset.impl.Comparisons;
+import org.eclipse.dataset.impl.ComplexDoubleDataset;
+import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.DatasetFactory;
+import org.eclipse.dataset.impl.DoubleDataset;
+import org.eclipse.dataset.impl.IntegerDataset;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

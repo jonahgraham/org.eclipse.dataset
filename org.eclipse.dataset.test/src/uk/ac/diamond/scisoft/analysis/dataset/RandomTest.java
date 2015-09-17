@@ -11,9 +11,9 @@ package uk.ac.diamond.scisoft.analysis.dataset;
 
 import static org.junit.Assert.assertEquals;
 
-import org.eclipse.dataset.DoubleDataset;
-import org.eclipse.dataset.IntegerDataset;
 import org.eclipse.dataset.Random;
+import org.eclipse.dataset.impl.DoubleDataset;
+import org.eclipse.dataset.impl.IntegerDataset;
 import org.junit.Test;
 
 /**

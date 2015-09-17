@@ -25,7 +25,6 @@ import org.apache.commons.math.linear.EigenDecompositionImpl;
 import org.apache.commons.math.linear.LUDecomposition;
 import org.apache.commons.math.linear.LUDecompositionImpl;
 import org.apache.commons.math.linear.MatrixUtils;
-import org.apache.commons.math.linear.NonSquareMatrixException;
 import org.apache.commons.math.linear.NotPositiveDefiniteMatrixException;
 import org.apache.commons.math.linear.NotSymmetricMatrixException;
 import org.apache.commons.math.linear.QRDecomposition;
@@ -34,6 +33,15 @@ import org.apache.commons.math.linear.RealMatrix;
 import org.apache.commons.math.linear.RealVector;
 import org.apache.commons.math.linear.SingularValueDecomposition;
 import org.apache.commons.math.linear.SingularValueDecompositionImpl;
+import org.eclipse.dataset.impl.AbstractCompoundDataset;
+import org.eclipse.dataset.impl.AbstractDataset;
+import org.eclipse.dataset.impl.BroadcastIterator;
+import org.eclipse.dataset.impl.ComplexDoubleDataset;
+import org.eclipse.dataset.impl.CompoundLongDataset;
+import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.DatasetFactory;
+import org.eclipse.dataset.impl.DoubleDataset;
+import org.eclipse.dataset.impl.SliceIterator;
 import org.eclipse.dataset.internal.utils.MissingFromMath2;
 
 

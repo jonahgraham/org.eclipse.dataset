@@ -16,10 +16,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.dataset.Dataset;
-import org.eclipse.dataset.DatasetFactory;
 import org.eclipse.dataset.IndexIterator;
-import org.eclipse.dataset.SliceIterator;
+import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.DatasetFactory;
+import org.eclipse.dataset.impl.SliceIterator;
 import org.junit.Test;
 
 /**
@@ -141,7 +141,6 @@ public class IndexIteratorTest {
 		return result;
 	}
 
-	@SuppressWarnings({ "null" })
 	private void testSlicedDataset(Dataset t, int start, int startaxis, int step, int stepaxis) {
 		int rank = t.getRank();
 		int[] steps = new int[rank];

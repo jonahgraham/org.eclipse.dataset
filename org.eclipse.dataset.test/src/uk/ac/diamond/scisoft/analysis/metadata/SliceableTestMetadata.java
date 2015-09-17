@@ -14,15 +14,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.dataset.BooleanDataset;
-import org.eclipse.dataset.DoubleDataset;
 import org.eclipse.dataset.ILazyDataset;
-import org.eclipse.dataset.ShortDataset;
+import org.eclipse.dataset.impl.BooleanDataset;
+import org.eclipse.dataset.impl.DoubleDataset;
+import org.eclipse.dataset.impl.ShortDataset;
 import org.eclipse.dataset.metadata.MetadataType;
 import org.eclipse.dataset.metadata.Reshapeable;
 import org.eclipse.dataset.metadata.Sliceable;
 
 public class SliceableTestMetadata implements MetadataType {
+	private static final long serialVersionUID = 4217425988760181544L;
 
 	@Reshapeable
 	@Sliceable

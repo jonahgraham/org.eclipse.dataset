@@ -17,6 +17,10 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.DoubleDataset;
+import org.eclipse.dataset.impl.Stats;
+
 /**
  * Statistics of data set lists. Used for image processing.
  */

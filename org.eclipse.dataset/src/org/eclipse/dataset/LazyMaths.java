@@ -14,6 +14,9 @@ package org.eclipse.dataset;
 
 import java.util.Arrays;
 
+import org.eclipse.dataset.impl.AbstractDataset;
+import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.DatasetFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

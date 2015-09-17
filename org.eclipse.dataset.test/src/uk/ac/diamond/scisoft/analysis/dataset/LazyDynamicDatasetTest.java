@@ -12,10 +12,10 @@ package uk.ac.diamond.scisoft.analysis.dataset;
 import java.util.Arrays;
 
 import org.eclipse.dataset.DataEvent;
-import org.eclipse.dataset.Dataset;
 import org.eclipse.dataset.IDataListener;
 import org.eclipse.dataset.IDynamicDataset;
-import org.eclipse.dataset.LazyDynamicDataset;
+import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.LazyDynamicDataset;
 import org.junit.Assert;
 import org.junit.Test;
 

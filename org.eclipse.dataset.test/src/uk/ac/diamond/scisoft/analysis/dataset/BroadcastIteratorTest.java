@@ -9,12 +9,12 @@
 
 package uk.ac.diamond.scisoft.analysis.dataset;
 
-import org.eclipse.dataset.BroadcastIterator;
-import org.eclipse.dataset.CompoundDataset;
-import org.eclipse.dataset.Dataset;
-import org.eclipse.dataset.DatasetFactory;
-import org.eclipse.dataset.DoubleDataset;
 import org.eclipse.dataset.Slice;
+import org.eclipse.dataset.impl.BroadcastIterator;
+import org.eclipse.dataset.impl.CompoundDataset;
+import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.DatasetFactory;
+import org.eclipse.dataset.impl.DoubleDataset;
 import org.junit.Assert;
 import org.junit.Test;
 

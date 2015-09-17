@@ -17,6 +17,10 @@ import org.apache.commons.math.random.MersenneTwister;
 import org.apache.commons.math.random.RandomData;
 import org.apache.commons.math.random.RandomDataImpl;
 import org.apache.commons.math.random.RandomGenerator;
+import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.DoubleDataset;
+import org.eclipse.dataset.impl.IntegerDataset;
+import org.eclipse.dataset.impl.LazyDataset;
 import org.eclipse.dataset.io.ILazyLoader;
 
 /**

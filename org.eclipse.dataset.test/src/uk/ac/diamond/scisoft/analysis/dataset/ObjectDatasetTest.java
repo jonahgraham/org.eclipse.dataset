@@ -12,7 +12,7 @@ package uk.ac.diamond.scisoft.analysis.dataset;
 import static org.junit.Assert.assertEquals;
 
 import org.eclipse.dataset.IndexIterator;
-import org.eclipse.dataset.ObjectDataset;
+import org.eclipse.dataset.impl.ObjectDataset;
 import org.junit.Test;
 
 public class ObjectDatasetTest {

@@ -9,10 +9,10 @@
 
 package uk.ac.diamond.scisoft.analysis.dataset;
 
-import org.eclipse.dataset.Dataset;
-import org.eclipse.dataset.DatasetFactory;
 import org.eclipse.dataset.LazyMaths;
-import org.eclipse.dataset.Maths;
+import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.DatasetFactory;
+import org.eclipse.dataset.impl.Maths;
 import org.junit.Test;
 
 public class LazyMathsTest {

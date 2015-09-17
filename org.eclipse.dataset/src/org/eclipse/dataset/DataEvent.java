@@ -15,12 +15,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Event fired to diseminate information about a dataset changing.
+ * Event fired to disseminate information about a dataset changing.
  * For instance if an image represents a live stream.
  * 
  * This event is passed over web-sockets. To keep dependencies to a 
  * minimum and since it is really simple, we have added an encode and
- * decode to JSON without the need for an API like jackson.
+ * decode to JSON without the need for an API like Jackson.
  */
 public class DataEvent extends EventObject {
 	

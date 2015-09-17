@@ -14,9 +14,9 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 
-import org.eclipse.dataset.Dataset;
-import org.eclipse.dataset.DatasetFactory;
 import org.eclipse.dataset.PositionIterator;
+import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.DatasetFactory;
 import org.junit.Test;
 
 /**
