@@ -222,7 +222,7 @@ public class LazyDataset extends LazyDatasetBase implements Serializable, Clonea
 	public Dataset getSlice(int[] start, int[] stop, int[] step) {
 		try {
 			return getSlice(null, start, stop, step);
-		} catch (Exception e) {
+		} catch (DatasetException e) {
 			logger.error("Problem slicing lazy dataset", e);
 		}
 		return null;
@@ -235,7 +235,7 @@ public class LazyDataset extends LazyDatasetBase implements Serializable, Clonea
 				return getSlice(null, new SliceND(shape));
 			}
 			return getSlice(null, new SliceND(shape, slice));
-		} catch (Exception e) {
+		} catch (DatasetException e) {
 			logger.error("Problem slicing lazy dataset", e);
 		}
 		return null;
@@ -245,7 +245,7 @@ public class LazyDataset extends LazyDatasetBase implements Serializable, Clonea
 	public Dataset getSlice(SliceND slice) {
 		try {
 			return getSlice(null, slice);
-		} catch (Exception e) {
+		} catch (DatasetException e) {
 			logger.error("Problem slicing lazy dataset", e);
 		}
 		return null;
@@ -422,7 +422,7 @@ public class LazyDataset extends LazyDatasetBase implements Serializable, Clonea
 		} else {
 			try {
 				a = DatasetUtils.convertToDataset(loader.getDataset(monitor, nslice));
-			} catch (Exception e) {
+			} catch (DatasetException e) {
 				// return a fake dataset to show that this has not worked, should not be used in general though.
 				logger.debug("Problem getting {}: {}", String.format("slice %s %s %s", Arrays.toString(slice.getStart()), Arrays.toString(slice.getStop()),
 								Arrays.toString(slice.getStep())), e);

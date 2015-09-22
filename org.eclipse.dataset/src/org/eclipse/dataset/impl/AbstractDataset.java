@@ -194,7 +194,7 @@ public abstract class AbstractDataset extends LazyDatasetBase implements Dataset
 		List<MetadataType> all = null;
 		try {
 			all = a.getMetadata(null);
-		} catch (Exception e) {
+		} catch (MetadataException e) {
 		}
 		if (all == null)
 			return null;

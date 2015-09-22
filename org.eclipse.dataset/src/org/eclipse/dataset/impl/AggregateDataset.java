@@ -220,7 +220,7 @@ public class AggregateDataset extends LazyDatasetBase implements ILazyDataset {
 	public IDataset getSlice(int[] start, int[] stop, int[] step) {
 		try {
 			return getSlice(null, new SliceND(shape, start, stop, step));
-		} catch (Exception e) {
+		} catch (DatasetException e) {
 			logger.error("Problem slicing aggregate dataset", e);
 		}
 		return null;
@@ -285,7 +285,7 @@ public class AggregateDataset extends LazyDatasetBase implements ILazyDataset {
 	public IDataset getSlice(Slice... slice) {
 		try {
 			return getSlice(null, slice);
-		} catch (Exception e) {
+		} catch (DatasetException e) {
 			logger.error("Problem slicing aggregate dataset", e);
 		}
 		return null;
@@ -295,7 +295,7 @@ public class AggregateDataset extends LazyDatasetBase implements ILazyDataset {
 	public IDataset getSlice(SliceND slice) {
 		try {
 			return getSlice(null, slice);
-		} catch (Exception e) {
+		} catch (DatasetException e) {
 			logger.error("Problem slicing aggregate dataset", e);
 		}
 		return null;
