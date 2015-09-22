@@ -193,9 +193,9 @@ def beginmethod(name, jdoc=None, params=0):
 
     print("\t\tfinal Dataset result = it.getOutput();")
     print("\t\tfinal int is = result.getElementsPerItem();")
-    print("\t\tfinal int dt = result.getDtype();")
+    print("\t\tfinal int dt = result.getDType();")
     for p in plist:
-        print("\t\tfinal double %s = AbstractDataset.toReal(%s);" % (p+"x", p))
+        print("\t\tfinal double %s = DTypeUtils.toReal(%s);" % (p+"x", p))
 #        print("\t\tfinal double %s = AbstractDataset.toImag(%s);" % (p+"y", p))
 
     print("")
@@ -563,7 +563,7 @@ def loopcompound(text, jtype, ovar, is_int, override_long):
 
 def preloop(dtype, otype, oclass, ovar=None, is_int=True, use_long=False, override_long=False, mask=None):
     print("\t\tcase Dataset.%s:" % dtype)
-    print("\t\t\tfinal %s[] %s = ((%s) result).data;" % (otype, ovar, oclass))
+    print("\t\t\tfinal %s[] %s = ((%s) result).getData();" % (otype, ovar, oclass))
     if is_binaryop or use_long:
         if is_int and not override_long:
             if mask is not None:
