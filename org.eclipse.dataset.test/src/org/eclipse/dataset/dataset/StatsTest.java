@@ -15,14 +15,14 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DatasetFactory;
-import org.eclipse.dataset.impl.DatasetUtils;
-import org.eclipse.dataset.impl.DoubleDataset;
-import org.eclipse.dataset.impl.IntegerDataset;
-import org.eclipse.dataset.impl.Maths;
-import org.eclipse.dataset.impl.Random;
-import org.eclipse.dataset.impl.Stats;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.DatasetFactory;
+import org.eclipse.dataset.dense.DatasetUtils;
+import org.eclipse.dataset.dense.Maths;
+import org.eclipse.dataset.dense.Random;
+import org.eclipse.dataset.dense.Stats;
+import org.eclipse.dataset.internal.dense.DoubleDataset;
+import org.eclipse.dataset.internal.dense.IntegerDataset;
 import org.junit.Test;
 
 /**

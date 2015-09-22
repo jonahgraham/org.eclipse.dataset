@@ -17,10 +17,10 @@ import java.util.Arrays;
 
 import org.eclipse.dataset.ILazyDataset;
 import org.eclipse.dataset.Slice;
-import org.eclipse.dataset.impl.AggregateDataset;
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DatasetFactory;
-import org.eclipse.dataset.impl.DatasetUtils;
+import org.eclipse.dataset.dense.AggregateDataset;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.DatasetFactory;
+import org.eclipse.dataset.dense.DatasetUtils;
 import org.junit.Before;
 import org.junit.Test;
 

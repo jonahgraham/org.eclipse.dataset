@@ -12,9 +12,9 @@ package org.eclipse.dataset.dataset;
 import static org.junit.Assert.assertEquals;
 
 import org.eclipse.dataset.Slice;
-import org.eclipse.dataset.impl.BooleanDataset;
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.IndexIterator;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.IndexIterator;
+import org.eclipse.dataset.internal.dense.BooleanDataset;
 import org.junit.Test;
 
 public class BooleanDatasetTest {

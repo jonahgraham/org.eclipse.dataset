@@ -17,18 +17,17 @@ import static org.junit.Assert.fail;
 import java.util.Arrays;
 
 import org.eclipse.dataset.PositionIterator;
-import org.eclipse.dataset.impl.AbstractCompoundDataset;
-import org.eclipse.dataset.impl.AbstractDataset;
-import org.eclipse.dataset.impl.CompoundDataset;
-import org.eclipse.dataset.impl.CompoundDoubleDataset;
-import org.eclipse.dataset.impl.CompoundIntegerDataset;
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DatasetFactory;
-import org.eclipse.dataset.impl.DatasetUtils;
-import org.eclipse.dataset.impl.IndexIterator;
-import org.eclipse.dataset.impl.Maths;
-import org.eclipse.dataset.impl.RGBDataset;
-import org.eclipse.dataset.impl.Random;
+import org.eclipse.dataset.dense.CompoundDataset;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.DatasetFactory;
+import org.eclipse.dataset.dense.DatasetUtils;
+import org.eclipse.dataset.dense.DTypeUtils;
+import org.eclipse.dataset.dense.IndexIterator;
+import org.eclipse.dataset.dense.Maths;
+import org.eclipse.dataset.dense.RGBDataset;
+import org.eclipse.dataset.dense.Random;
+import org.eclipse.dataset.internal.dense.CompoundDoubleDataset;
+import org.eclipse.dataset.internal.dense.CompoundIntegerDataset;
 import org.junit.Test;
 
 public class AbstractCompoundDatasetTest {
@@ -137,27 +136,27 @@ public class AbstractCompoundDatasetTest {
 	public void testToDoubleArray() {
 		double[] d;
 
-		d = AbstractCompoundDataset.toDoubleArray(ddata, idata.length);
+		d = DTypeUtils.toDoubleArray(ddata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toDoubleArray(fdata, idata.length);
+		d = DTypeUtils.toDoubleArray(fdata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toDoubleArray(ldata, idata.length);
+		d = DTypeUtils.toDoubleArray(ldata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toDoubleArray(idata, idata.length);
+		d = DTypeUtils.toDoubleArray(idata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toDoubleArray(sdata, idata.length);
+		d = DTypeUtils.toDoubleArray(sdata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toDoubleArray(bdata, idata.length);
+		d = DTypeUtils.toDoubleArray(bdata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
@@ -167,27 +166,27 @@ public class AbstractCompoundDatasetTest {
 	public void testToFloatArray() {
 		float[] d;
 
-		d = AbstractCompoundDataset.toFloatArray(ddata, idata.length);
+		d = DTypeUtils.toFloatArray(ddata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toFloatArray(fdata, idata.length);
+		d = DTypeUtils.toFloatArray(fdata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toFloatArray(ldata, idata.length);
+		d = DTypeUtils.toFloatArray(ldata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toFloatArray(idata, idata.length);
+		d = DTypeUtils.toFloatArray(idata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toFloatArray(sdata, idata.length);
+		d = DTypeUtils.toFloatArray(sdata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toFloatArray(bdata, idata.length);
+		d = DTypeUtils.toFloatArray(bdata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
@@ -197,27 +196,27 @@ public class AbstractCompoundDatasetTest {
 	public void testToLongArray() {
 		long[] d;
 
-		d = AbstractCompoundDataset.toLongArray(ddata, idata.length);
+		d = DTypeUtils.toLongArray(ddata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toLongArray(fdata, idata.length);
+		d = DTypeUtils.toLongArray(fdata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toLongArray(ldata, idata.length);
+		d = DTypeUtils.toLongArray(ldata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toLongArray(idata, idata.length);
+		d = DTypeUtils.toLongArray(idata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toLongArray(sdata, idata.length);
+		d = DTypeUtils.toLongArray(sdata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toLongArray(bdata, idata.length);
+		d = DTypeUtils.toLongArray(bdata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
@@ -227,27 +226,27 @@ public class AbstractCompoundDatasetTest {
 	public void testToIntegerArray() {
 		int[] d;
 
-		d = AbstractCompoundDataset.toIntegerArray(ddata, idata.length);
+		d = DTypeUtils.toIntegerArray(ddata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toIntegerArray(fdata, idata.length);
+		d = DTypeUtils.toIntegerArray(fdata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toIntegerArray(ldata, idata.length);
+		d = DTypeUtils.toIntegerArray(ldata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toIntegerArray(idata, idata.length);
+		d = DTypeUtils.toIntegerArray(idata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toIntegerArray(sdata, idata.length);
+		d = DTypeUtils.toIntegerArray(sdata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toIntegerArray(bdata, idata.length);
+		d = DTypeUtils.toIntegerArray(bdata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
@@ -257,27 +256,27 @@ public class AbstractCompoundDatasetTest {
 	public void testToShortArray() {
 		short[] d;
 
-		d = AbstractCompoundDataset.toShortArray(ddata, idata.length);
+		d = DTypeUtils.toShortArray(ddata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toShortArray(fdata, idata.length);
+		d = DTypeUtils.toShortArray(fdata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toShortArray(ldata, idata.length);
+		d = DTypeUtils.toShortArray(ldata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toShortArray(idata, idata.length);
+		d = DTypeUtils.toShortArray(idata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toShortArray(sdata, idata.length);
+		d = DTypeUtils.toShortArray(sdata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toShortArray(bdata, idata.length);
+		d = DTypeUtils.toShortArray(bdata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
@@ -287,27 +286,27 @@ public class AbstractCompoundDatasetTest {
 	public void testToByteArray() {
 		byte[] d;
 
-		d = AbstractCompoundDataset.toByteArray(ddata, idata.length);
+		d = DTypeUtils.toByteArray(ddata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toByteArray(fdata, idata.length);
+		d = DTypeUtils.toByteArray(fdata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toByteArray(ldata, idata.length);
+		d = DTypeUtils.toByteArray(ldata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toByteArray(idata, idata.length);
+		d = DTypeUtils.toByteArray(idata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toByteArray(sdata, idata.length);
+		d = DTypeUtils.toByteArray(sdata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
-		d = AbstractCompoundDataset.toByteArray(bdata, idata.length);
+		d = DTypeUtils.toByteArray(bdata, idata.length);
 		for (int i = 0; i < idata.length; i++) {
 			assertEquals(ddata[i], d[i], 1e-10);
 		}
@@ -494,7 +493,7 @@ public class AbstractCompoundDatasetTest {
 		
 		// check compatibility
 		try {
-			AbstractDataset.checkCompatibility(a, error);
+			DatasetUtils.checkCompatibility(a, error);
 		} catch (Exception e) {
 			fail("Error shape is not the same as input datasets");
 		}
@@ -531,7 +530,7 @@ public class AbstractCompoundDatasetTest {
 		
 		// check compatibility
 		try {
-			AbstractDataset.checkCompatibility(a, error2);
+			DatasetUtils.checkCompatibility(a, error2);
 		} catch (Exception e) {
 			fail("Error shape is not the same as input datasets");
 		}
@@ -570,7 +569,7 @@ public class AbstractCompoundDatasetTest {
 		
 		// check compatibility
 		try {
-			AbstractDataset.checkCompatibility(a, error2);
+			DatasetUtils.checkCompatibility(a, error2);
 		} catch (Exception e) {
 			fail("Error shape is not the same as input datasets");
 		}

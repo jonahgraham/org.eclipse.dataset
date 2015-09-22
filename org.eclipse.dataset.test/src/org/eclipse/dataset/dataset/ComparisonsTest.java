@@ -11,13 +11,13 @@ package org.eclipse.dataset.dataset;
 
 import java.util.List;
 
-import org.eclipse.dataset.impl.BooleanDataset;
-import org.eclipse.dataset.impl.Comparisons;
-import org.eclipse.dataset.impl.ComplexDoubleDataset;
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DatasetFactory;
-import org.eclipse.dataset.impl.DoubleDataset;
-import org.eclipse.dataset.impl.IntegerDataset;
+import org.eclipse.dataset.dense.Comparisons;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.DatasetFactory;
+import org.eclipse.dataset.internal.dense.BooleanDataset;
+import org.eclipse.dataset.internal.dense.ComplexDoubleDataset;
+import org.eclipse.dataset.internal.dense.DoubleDataset;
+import org.eclipse.dataset.internal.dense.IntegerDataset;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -204,7 +204,7 @@ public class ComparisonsTest {
 	@Test
 	public void testNonZero() {
 		Dataset c = a.clone().reshape(2, 3);
-		List<IntegerDataset> e = Comparisons.nonZero(c);
+		List<Dataset> e = Comparisons.nonZero(c);
 		AbstractDatasetTest.checkDatasets(e.get(0), new IntegerDataset(new int[] {0, 0, 1, 1, 1}, null));
 		AbstractDatasetTest.checkDatasets(e.get(1), new IntegerDataset(new int[] {1, 2, 0, 1, 2}, null));
 	}

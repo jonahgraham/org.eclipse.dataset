@@ -14,8 +14,8 @@ import java.util.Arrays;
 import org.eclipse.dataset.DataEvent;
 import org.eclipse.dataset.IDataListener;
 import org.eclipse.dataset.IDynamicDataset;
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.LazyDynamicDataset;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.internal.dense.LazyDynamicDataset;
 import org.junit.Assert;
 import org.junit.Test;
 

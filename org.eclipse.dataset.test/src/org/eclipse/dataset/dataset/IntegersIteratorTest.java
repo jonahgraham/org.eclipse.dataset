@@ -14,11 +14,11 @@ import java.util.List;
 
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.TestUtils;
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DatasetFactory;
-import org.eclipse.dataset.impl.DoubleDataset;
-import org.eclipse.dataset.impl.IntegerDataset;
-import org.eclipse.dataset.impl.IntegersIterator;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.DatasetFactory;
+import org.eclipse.dataset.dense.IntegersIterator;
+import org.eclipse.dataset.internal.dense.DoubleDataset;
+import org.eclipse.dataset.internal.dense.IntegerDataset;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

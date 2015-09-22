@@ -13,9 +13,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.dataset.ILazyDataset;
-import org.eclipse.dataset.impl.BooleanDataset;
-import org.eclipse.dataset.impl.DoubleDataset;
-import org.eclipse.dataset.impl.ShortDataset;
+import org.eclipse.dataset.internal.dense.BooleanDataset;
+import org.eclipse.dataset.internal.dense.DoubleDataset;
+import org.eclipse.dataset.internal.dense.ShortDataset;
 import org.eclipse.dataset.metadata.MetadataType;
 import org.eclipse.dataset.metadata.Sliceable;
 

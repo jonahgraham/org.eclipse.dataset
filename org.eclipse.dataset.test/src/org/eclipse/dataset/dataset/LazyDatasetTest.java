@@ -13,9 +13,9 @@ import org.eclipse.dataset.ILazyDataset;
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.SliceND;
 import org.eclipse.dataset.TestUtils;
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.LazyDataset;
-import org.eclipse.dataset.impl.Random;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.Random;
+import org.eclipse.dataset.internal.dense.LazyDataset;
 import org.junit.Assert;
 import org.junit.Test;
 

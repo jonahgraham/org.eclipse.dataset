@@ -12,10 +12,10 @@ package org.eclipse.dataset.dataset;
 import static org.junit.Assert.assertEquals;
 
 import org.eclipse.dataset.Slice;
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DatasetFactory;
-import org.eclipse.dataset.impl.IndexIterator;
-import org.eclipse.dataset.impl.LongDataset;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.DatasetFactory;
+import org.eclipse.dataset.dense.IndexIterator;
+import org.eclipse.dataset.internal.dense.LongDataset;
 import org.junit.Test;
 
 public class LongDatasetTest {

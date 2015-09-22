@@ -21,11 +21,11 @@ import java.util.Map;
 import org.eclipse.dataset.IDataset;
 import org.eclipse.dataset.ILazyDataset;
 import org.eclipse.dataset.Slice;
-import org.eclipse.dataset.impl.BooleanDataset;
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DoubleDataset;
-import org.eclipse.dataset.impl.Random;
-import org.eclipse.dataset.impl.ShortDataset;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.Random;
+import org.eclipse.dataset.internal.dense.BooleanDataset;
+import org.eclipse.dataset.internal.dense.DoubleDataset;
+import org.eclipse.dataset.internal.dense.ShortDataset;
 import org.junit.Test;
 
 public class SliceableMetadataTest {
