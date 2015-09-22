@@ -53,11 +53,11 @@ public interface IRemoteDataset extends ILazyDataset, IDynamicDataset {
 	 * are read. These properties must not change in the file while you are connected.
 	 * For instance if the file is ints when you connect, it must not change data class.
 	 */
-	public void connect() throws Exception;
+	public void connect() throws DatasetException;
 	
 	/**
 	 * Stops listening to the dataset changing and disconnects from the server.
 	 * A remote dataset may be connected and disconnected multiple times.
 	 */
-	public void disconnect() throws Exception;
+	public void disconnect() throws DatasetException;
 }

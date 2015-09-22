@@ -17,6 +17,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.eclipse.dataset.DatasetException;
 import org.eclipse.dataset.IDatasetIterator;
 
 class InterpolatedPoint {
@@ -59,7 +60,7 @@ class InterpolatedPoint {
 public class InterpolatorUtils {
 
 	public static Dataset regridOld(Dataset data, Dataset x, Dataset y,
-			Dataset gridX, Dataset gridY) throws Exception {
+			Dataset gridX, Dataset gridY) throws DatasetException {
 		
 		DoubleDataset result = new DoubleDataset(gridX.getShapeRef()[0], gridY.getShapeRef()[0]);
 		
@@ -128,7 +129,7 @@ public class InterpolatorUtils {
 	}
 	
 	private static double getInterpolated(Dataset val, Dataset x, Dataset y, double xPos,
-			double yPos) throws Exception {
+			double yPos) throws DatasetException {
 		
 		// initial guess
 		Dataset xPosDS = x.getSlice(new int[] {0,0}, new int[] {x.getShapeRef()[0],1}, null).isubtract(xPos);
@@ -159,7 +160,7 @@ public class InterpolatorUtils {
 	}
 
 	private static double getInterpolatedResultFromNinePoints(Dataset val, Dataset x, Dataset y,
-			double xPos, double yPos) throws Exception {
+			double xPos, double yPos) throws DatasetException {
 		
 		// First build the nine points
 		InterpolatedPoint p00 = makePoint(x, y, 0, 0);

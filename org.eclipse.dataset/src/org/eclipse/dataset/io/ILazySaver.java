@@ -9,6 +9,7 @@
 
 package org.eclipse.dataset.io;
 
+import org.eclipse.dataset.DatasetException;
 import org.eclipse.dataset.IDataset;
 import org.eclipse.dataset.IMonitor;
 import org.eclipse.dataset.SliceND;
@@ -21,7 +22,7 @@ public interface ILazySaver extends ILazyLoader {
 	/**
 	 * Initialize dataset in file
 	 */
-	public void initialize() throws Exception;
+	public void initialize() throws DatasetException;
 
 	/**
 	 * 
@@ -33,7 +34,7 @@ public interface ILazySaver extends ILazyLoader {
 	 * @param mon
 	 * @param data
 	 * @param slice
-	 * @throws Exception
+	 * @throws DatasetException
 	 */
-	public void setSlice(IMonitor mon, IDataset data, SliceND slice) throws Exception;
+	public void setSlice(IMonitor mon, IDataset data, SliceND slice) throws DatasetException;
 }

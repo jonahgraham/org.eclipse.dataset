@@ -12,6 +12,7 @@ package org.eclipse.dataset.impl;
 import java.io.IOException;
 
 import org.eclipse.dataset.DataEvent;
+import org.eclipse.dataset.DatasetException;
 import org.eclipse.dataset.IDataset;
 import org.eclipse.dataset.ILazyWriteableDataset;
 import org.eclipse.dataset.IMonitor;
@@ -91,17 +92,17 @@ public class LazyWriteableDataset extends LazyDynamicDataset implements ILazyWri
 			}
 
 			@Override
-			public void initialize() throws Exception {
+			public void initialize() throws DatasetException {
 			}
 
 			@Override
 			public Dataset getDataset(IMonitor mon, SliceND slice)
-					throws Exception {
+					throws DatasetException {
 				return d.getSlice(mon, slice);
 			}
 
 			@Override
-			public void setSlice(IMonitor mon, IDataset data, SliceND slice) throws Exception {
+			public void setSlice(IMonitor mon, IDataset data, SliceND slice) throws DatasetException {
 				if (slice.isExpanded()) {
 					Dataset od = d;
 					d = DatasetFactory.zeros(slice.getSourceShape(), od.getDtype());
@@ -165,16 +166,16 @@ public class LazyWriteableDataset extends LazyDynamicDataset implements ILazyWri
 	 * 
 	 * @param data
 	 * @param slice an n-D slice
-	 * @throws Exception 
+	 * @throws DatasetException 
 	 */
-	public void setSlice(IDataset data, SliceND slice) throws Exception {
+	public void setSlice(IDataset data, SliceND slice) throws DatasetException {
 		setSlice(null, data, slice);
 	}
 
 	@Override
-	public void setSlice(IMonitor monitor, IDataset data, SliceND slice) throws Exception {
+	public void setSlice(IMonitor monitor, IDataset data, SliceND slice) throws DatasetException {
 		if (saver == null && saver.isFileWriteable()) {
-			throw new IOException("Cannot write to file!");
+			throw new DatasetException(new IOException("Cannot write to file!"));
 		}
 
 		SliceND nslice = calcTrueSlice(slice);
@@ -190,7 +191,7 @@ public class LazyWriteableDataset extends LazyDynamicDataset implements ILazyWri
 	}
 
 	@Override
-	public void setSlice(IMonitor monitor, IDataset data, int[] start, int[] stop, int[] step) throws Exception {
+	public void setSlice(IMonitor monitor, IDataset data, int[] start, int[] stop, int[] step) throws DatasetException {
 		setSlice(monitor, data, new SliceND(shape, maxShape, start, stop, step));
 	}
 

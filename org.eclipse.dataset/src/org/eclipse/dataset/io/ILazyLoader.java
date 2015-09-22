@@ -14,6 +14,7 @@ package org.eclipse.dataset.io;
 
 import java.io.Serializable;
 
+import org.eclipse.dataset.DatasetException;
 import org.eclipse.dataset.IDataset;
 import org.eclipse.dataset.IMonitor;
 import org.eclipse.dataset.SliceND;
@@ -33,7 +34,7 @@ public interface ILazyLoader extends Serializable {
 	 * @param mon
 	 * @param slice
 	 * @return a slice of a dataset
-	 * @throws Exception
+	 * @throws DatasetException
 	 */
-	public IDataset getDataset(IMonitor mon, SliceND slice) throws Exception;
+	public IDataset getDataset(IMonitor mon, SliceND slice) throws DatasetException;
 }

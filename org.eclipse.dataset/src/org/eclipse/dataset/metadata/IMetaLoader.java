@@ -13,6 +13,7 @@
 package org.eclipse.dataset.metadata;
 
 import org.eclipse.dataset.IMonitor;
+import org.eclipse.dataset.MetadataException;
 
 /**
  * Interface used to mark a loader as being available to load and return
@@ -25,7 +26,7 @@ public interface IMetaLoader {
 	 * This can be read in more cheaply than the entire data.
 	 * @param mon
 	 */
-	public void loadMetadata(IMonitor mon) throws Exception ;
+	public void loadMetadata(IMonitor mon) throws MetadataException;
 	
     /**
      * Returns an object containing some data about the data file

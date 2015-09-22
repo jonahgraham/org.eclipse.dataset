@@ -16,6 +16,8 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Map;
 
+import org.eclipse.dataset.DatasetException;
+import org.eclipse.dataset.MetadataException;
 import org.eclipse.dataset.io.IDataAnalysisObject;
 
 /**
@@ -65,14 +67,14 @@ public interface IMetadata extends IDataAnalysisObject, MetadataType, Serializab
 	 * @param key
 	 * @return value
 	 */
-	public Serializable getMetaValue(String key) throws Exception;
+	public Serializable getMetaValue(String key) throws MetadataException;
 
 	/**
 	 * Returns a collection of metadata names
 	 * @return collection
-	 * @throws Exception
+	 * @throws MetadataException
 	 */
-	public Collection<String> getMetaNames() throws Exception;
+	public Collection<String> getMetaNames() throws MetadataException;
 
 	/**
 	 * May be implemented to provide custom metadata in the form of a collection of serializable objects

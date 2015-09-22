@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.dataset.DatasetException;
 import org.eclipse.dataset.ILazyDataset;
 import org.eclipse.dataset.IMonitor;
 import org.eclipse.dataset.Slice;
@@ -98,7 +99,7 @@ public class LazyDataset extends LazyDatasetBase implements Serializable, Clonea
 
 			@Override
 			public Dataset getDataset(IMonitor mon, SliceND slice)
-					throws Exception {
+					throws DatasetException {
 				return d.getSlice(mon, slice);
 			}
 		});
@@ -251,7 +252,7 @@ public class LazyDataset extends LazyDatasetBase implements Serializable, Clonea
 	}
 
 	@Override
-	public Dataset getSlice(IMonitor monitor, Slice... slice) throws Exception {
+	public Dataset getSlice(IMonitor monitor, Slice... slice) throws DatasetException {
 		if (slice == null || slice.length == 0) {
 			return getSlice(monitor, new SliceND(shape));
 		}
@@ -403,12 +404,12 @@ public class LazyDataset extends LazyDatasetBase implements Serializable, Clonea
 	}
 
 	@Override
-	public Dataset getSlice(IMonitor monitor, int[] start, int[] stop, int[] step) throws Exception {
+	public Dataset getSlice(IMonitor monitor, int[] start, int[] stop, int[] step) throws DatasetException {
 		return getSlice(monitor, new SliceND(shape, start, stop, step));
 	}
 
 	@Override
-	public Dataset getSlice(IMonitor monitor, SliceND slice) throws Exception {
+	public Dataset getSlice(IMonitor monitor, SliceND slice) throws DatasetException {
 
 		if (loader != null && !loader.isFileReadable())
 			return null; // TODO add interaction to use plot (or remote) server to load dataset

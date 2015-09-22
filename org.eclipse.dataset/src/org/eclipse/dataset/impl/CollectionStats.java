@@ -17,6 +17,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.dataset.DatasetException;
 import org.eclipse.dataset.IDataset;
 import org.eclipse.dataset.IDatasetIterator;
 import org.eclipse.dataset.PositionIterator;
@@ -35,9 +36,9 @@ public class CollectionStats {
 	 * 
 	 * @param sets
 	 * @return mean data set of the same shape as those passed in.
-	 * @throws Exception
+	 * @throws DatasetException
 	 */
-	public static Dataset mean(final List<IDataset> sets) throws Exception {
+	public static Dataset mean(final List<IDataset> sets) throws DatasetException {
 		
 		return process(sets, new StatFunction() {
 			@Override
@@ -52,9 +53,9 @@ public class CollectionStats {
 	 * 
 	 * @param sets
 	 * @return median data set of the same shape as those passed in.
-	 * @throws Exception
+	 * @throws DatasetException
 	 */
-	public static Dataset median(final List<IDataset> sets) throws Exception {
+	public static Dataset median(final List<IDataset> sets) throws DatasetException {
 		
 		return process(sets, new StatFunction() {
 			@Override
@@ -69,10 +70,10 @@ public class CollectionStats {
 	 * 
 	 * @param sets
 	 * @return median data set of the same shape as those passed in.
-	 * @throws Exception
+	 * @throws DatasetException
 	 */
 	private static Dataset process(final List<IDataset> sets,
-			                               final StatFunction   function) throws Exception {
+			                               final StatFunction   function) throws DatasetException {
 		
 		int[] shape = assertShapes(sets);
 		final DoubleDataset result = new DoubleDataset(shape);
@@ -94,16 +95,16 @@ public class CollectionStats {
         return result;
 	}
 
-	private static int[] assertShapes(final Collection<IDataset> sets) throws Exception{
+	private static int[] assertShapes(final Collection<IDataset> sets) throws DatasetException{
 		
-		if (sets.size()<2) throw new Exception("You must take the median of at least two sets!");
+		if (sets.size()<2) throw new DatasetException("You must take the median of at least two sets!");
 		
 		final Iterator<IDataset> it = sets.iterator();
 		final int[] shape = it.next().getShape();
 		while (it.hasNext()) {
 			IDataset d = it.next();
 			final int[] nextShape = d.getShape();
-			if (!Arrays.equals(shape, nextShape)) throw new Exception("All data sets should be the same shape!");
+			if (!Arrays.equals(shape, nextShape)) throw new DatasetException("All data sets should be the same shape!");
 		}
 		return shape;
 	}

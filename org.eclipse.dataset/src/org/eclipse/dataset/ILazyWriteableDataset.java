@@ -44,9 +44,9 @@ public interface ILazyWriteableDataset extends IDynamicDataset {
 	 * @param monitor
 	 * @param data
 	 * @param slice an n-D slice
-	 * @throws Exception 
+	 * @throws DatasetException 
 	 */
-	public void setSlice(final IMonitor monitor, final IDataset data, final SliceND slice) throws Exception;
+	public void setSlice(final IMonitor monitor, final IDataset data, final SliceND slice) throws DatasetException;
 
 	/**
 	 * Set a slice of the dataset
@@ -59,7 +59,7 @@ public interface ILazyWriteableDataset extends IDynamicDataset {
 	 *            specifies the stopping indexes (can be null for end)
 	 * @param step
 	 *            specifies the steps in the slice (can be null for unit steps)
-	 * @throws Exception 
+	 * @throws DatasetException 
 	 */
-	public void setSlice(final IMonitor monitor, final IDataset data, final int[] start, final int[] stop, final int[] step) throws Exception;
+	public void setSlice(final IMonitor monitor, final IDataset data, final int[] start, final int[] stop, final int[] step) throws DatasetException;
 }

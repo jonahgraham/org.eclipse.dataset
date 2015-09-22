@@ -17,6 +17,7 @@ import org.apache.commons.math.random.MersenneTwister;
 import org.apache.commons.math.random.RandomData;
 import org.apache.commons.math.random.RandomDataImpl;
 import org.apache.commons.math.random.RandomGenerator;
+import org.eclipse.dataset.DatasetException;
 import org.eclipse.dataset.IDataset;
 import org.eclipse.dataset.ILazyDataset;
 import org.eclipse.dataset.IMonitor;
@@ -218,7 +219,7 @@ public class Random {
 			}
 
 			@Override
-			public IDataset getDataset(IMonitor mon, SliceND slice) throws Exception {
+			public IDataset getDataset(IMonitor mon, SliceND slice) throws DatasetException {
                 return rand(slice.getShape());
 			}
 		});

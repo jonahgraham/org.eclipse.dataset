@@ -16,6 +16,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.dataset.DatasetException;
 import org.eclipse.dataset.IDataset;
 import org.eclipse.dataset.ILazyDataset;
 import org.eclipse.dataset.IMonitor;
@@ -226,12 +227,12 @@ public class AggregateDataset extends LazyDatasetBase implements ILazyDataset {
 	}
 
 	@Override
-	public IDataset getSlice(IMonitor monitor, int[] start, int[] stop, int[] step) throws Exception {
+	public IDataset getSlice(IMonitor monitor, int[] start, int[] stop, int[] step) throws DatasetException {
 		return getSlice(monitor, new SliceND(shape, start, stop, step));
 	}
 
 	@Override
-	public IDataset getSlice(IMonitor monitor, SliceND slice) throws Exception {
+	public IDataset getSlice(IMonitor monitor, SliceND slice) throws DatasetException {
 		int[] start = slice.getStart();
 		int[] stop  = slice.getStop();
 		int[] step  = slice.getStep();
@@ -257,7 +258,7 @@ public class AggregateDataset extends LazyDatasetBase implements ILazyDataset {
 		ILazyDataset nd; 
 		while (p < fe) {
 			
-			if (monitor!=null && monitor.isCancelled()) throw new Exception("Slice cancelled");
+			if (monitor!=null && monitor.isCancelled()) throw new DatasetException("Slice cancelled");
 			nd = data[map[p]];
 			if (nd != od) {
 				start[0] = op - offset[map[op]];
@@ -301,7 +302,7 @@ public class AggregateDataset extends LazyDatasetBase implements ILazyDataset {
 	}
 
 	@Override
-	public IDataset getSlice(IMonitor monitor, Slice... slice) throws Exception {
+	public IDataset getSlice(IMonitor monitor, Slice... slice) throws DatasetException {
 		return getSlice(monitor, new SliceND(shape, slice));
 	}
 

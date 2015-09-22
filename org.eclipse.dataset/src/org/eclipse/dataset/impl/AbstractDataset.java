@@ -26,6 +26,7 @@ import org.apache.commons.math.stat.descriptive.SummaryStatistics;
 import org.eclipse.dataset.IDataset;
 import org.eclipse.dataset.ILazyDataset;
 import org.eclipse.dataset.IMonitor;
+import org.eclipse.dataset.MetadataException;
 import org.eclipse.dataset.PositionIterator;
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.SliceND;
