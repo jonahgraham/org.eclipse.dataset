@@ -19,20 +19,20 @@ import java.util.Map;
 import org.apache.commons.math.complex.Complex;
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.TestUtils;
-import org.eclipse.dataset.impl.ByteDataset;
-import org.eclipse.dataset.impl.ComplexDoubleDataset;
-import org.eclipse.dataset.impl.CompoundDataset;
-import org.eclipse.dataset.impl.CompoundDoubleDataset;
-import org.eclipse.dataset.impl.CompoundShortDataset;
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DatasetFactory;
-import org.eclipse.dataset.impl.DatasetUtils;
-import org.eclipse.dataset.impl.DoubleDataset;
-import org.eclipse.dataset.impl.FloatDataset;
-import org.eclipse.dataset.impl.IndexIterator;
-import org.eclipse.dataset.impl.IntegerDataset;
-import org.eclipse.dataset.impl.Maths;
-import org.eclipse.dataset.impl.Random;
+import org.eclipse.dataset.dense.CompoundDataset;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.DatasetFactory;
+import org.eclipse.dataset.dense.DatasetUtils;
+import org.eclipse.dataset.dense.IndexIterator;
+import org.eclipse.dataset.dense.Maths;
+import org.eclipse.dataset.dense.Random;
+import org.eclipse.dataset.internal.dense.ByteDataset;
+import org.eclipse.dataset.internal.dense.ComplexDoubleDataset;
+import org.eclipse.dataset.internal.dense.CompoundDoubleDataset;
+import org.eclipse.dataset.internal.dense.CompoundShortDataset;
+import org.eclipse.dataset.internal.dense.DoubleDataset;
+import org.eclipse.dataset.internal.dense.FloatDataset;
+import org.eclipse.dataset.internal.dense.IntegerDataset;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -73,7 +73,7 @@ public class MathsTest {
 	private void checkDatasets(Object a, Object b, Dataset c, Dataset d) {
 		Assert.assertNotNull(c);
 		Assert.assertNotNull(d);
-		Assert.assertEquals("Dtype does not match", c.getDtype(), d.getDtype());
+		Assert.assertEquals("Dtype does not match", c.getDType(), d.getDType());
 		Assert.assertEquals("Size does not match", c.getSize(), d.getSize());
 		Assert.assertEquals("ISize does not match", c.getElementsPerItem(), d.getElementsPerItem());
 		Assert.assertArrayEquals("Shape does not match", c.getShape(), d.getShape());
@@ -82,9 +82,9 @@ public class MathsTest {
 		final IndexIterator di = d.getIterator();
 		final int is = c.getElementsPerItem();
 
-		final double abserr = (c.getDtype() == Dataset.FLOAT32 ||
-				c.getDtype() == Dataset.COMPLEX64 ||
-				c.getDtype() == Dataset.ARRAYFLOAT32) ? ABSERRF : ABSERRD;
+		final double abserr = (c.getDType() == Dataset.FLOAT32 ||
+				c.getDType() == Dataset.COMPLEX64 ||
+				c.getDType() == Dataset.ARRAYFLOAT32) ? ABSERRF : ABSERRD;
 
 		if (is == 1) {
 			while (ci.hasNext() && di.hasNext()) {
@@ -1720,7 +1720,7 @@ public class MathsTest {
 		checkDatasets(null, null, d, ta);
 
 		
-		Dataset b = DatasetFactory.createRange(a.getShape()[0], a.getDtype());
+		Dataset b = DatasetFactory.createRange(a.getShape()[0], a.getDType());
 		b.imultiply(2);
 		tdata = new double[] {0.5 , 0.75, 1.25, 1.75, 2.25, 2.5};
 		ta = new DoubleDataset(tdata, null);
@@ -1740,9 +1740,9 @@ public class MathsTest {
 		ta = new DoubleDataset(tdata, 2, 3);
 		checkDatasets(null, null, l.get(1), ta);
 
-		b = DatasetFactory.createRange(a.getShape()[0], a.getDtype());
+		b = DatasetFactory.createRange(a.getShape()[0], a.getDType());
 		b.imultiply(2);
-		Dataset c = DatasetFactory.createRange(a.getShape()[1], a.getDtype());
+		Dataset c = DatasetFactory.createRange(a.getShape()[1], a.getDType());
 		c.imultiply(-1.5);
 
 		l = Maths.gradient(a, b, c);

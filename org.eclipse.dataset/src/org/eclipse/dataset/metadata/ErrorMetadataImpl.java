@@ -16,9 +16,9 @@ import java.io.Serializable;
 
 import org.eclipse.dataset.IDataset;
 import org.eclipse.dataset.ILazyDataset;
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DatasetUtils;
-import org.eclipse.dataset.impl.Maths;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.DatasetUtils;
+import org.eclipse.dataset.dense.Maths;
 
 /**
  * Implementation of error class

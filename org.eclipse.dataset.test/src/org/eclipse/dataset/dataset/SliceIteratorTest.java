@@ -13,9 +13,9 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DatasetFactory;
-import org.eclipse.dataset.impl.SliceIterator;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.DatasetFactory;
+import org.eclipse.dataset.internal.dense.SliceIterator;
 import org.junit.Test;
 
 /**

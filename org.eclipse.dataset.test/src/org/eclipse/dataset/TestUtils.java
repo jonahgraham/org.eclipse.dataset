@@ -16,8 +16,8 @@ import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.Arrays;
 
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.IndexIterator;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.IndexIterator;
 import org.junit.Assert;
 
 public class TestUtils {
@@ -220,7 +220,7 @@ public class TestUtils {
 		Assert.assertArrayEquals("Shape", expected.getShape(), calc.getShape());
 		Assert.assertEquals("Itemsize", expected.getElementsPerItem(), calc.getElementsPerItem());
 		if (testDtype) {
-			Assert.assertEquals("Dataset type", expected.getDtype(), calc.getDtype());
+			Assert.assertEquals("Dataset type", expected.getDType(), calc.getDType());
 		}
 		IndexIterator at = calc.getIterator(true);
 		IndexIterator bt = expected.getIterator();

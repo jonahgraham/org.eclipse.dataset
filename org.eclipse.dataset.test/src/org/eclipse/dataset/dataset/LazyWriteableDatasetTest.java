@@ -11,10 +11,10 @@ package org.eclipse.dataset.dataset;
 
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.SliceND;
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DatasetFactory;
-import org.eclipse.dataset.impl.LazyWriteableDataset;
-import org.eclipse.dataset.impl.Random;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.DatasetFactory;
+import org.eclipse.dataset.dense.Random;
+import org.eclipse.dataset.internal.dense.LazyWriteableDataset;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -28,7 +28,7 @@ public class LazyWriteableDatasetTest {
 		LazyWriteableDataset ld = LazyWriteableDataset.createLazyDataset(d);
 
 		SliceND s = new SliceND(d.getShapeRef(), (Slice) null, null, new Slice(1), new Slice(0, null, 2));
-		Dataset sd = DatasetFactory.ones(s.getShape(), d.getDtype());
+		Dataset sd = DatasetFactory.ones(s.getShape(), d.getDType());
 		ld.setSlice(sd, s);
 		Assert.assertEquals(d.getSlice(s), sd);
 	}
@@ -41,7 +41,7 @@ public class LazyWriteableDatasetTest {
 		LazyWriteableDataset ld = old.getSliceView();
 
 		SliceND s = new SliceND(ld.getShape(), (Slice) null, null, new Slice(1, null), new Slice(0, null, 2));
-		Dataset sd = DatasetFactory.ones(s.getShape(), ld.getDtype());
+		Dataset sd = DatasetFactory.ones(s.getShape(), ld.getDType());
 		ld.setSlice(sd, s);
 		Assert.assertEquals(d.getSlice(s), sd);
 	}
@@ -54,7 +54,7 @@ public class LazyWriteableDatasetTest {
 		LazyWriteableDataset ld = old.getSliceView(null, null, null, new Slice(1, null));
 
 		SliceND s = new SliceND(ld.getShape(), (Slice) null, null, new Slice(1, null), new Slice(0, null, 2));
-		Dataset sd = DatasetFactory.ones(s.getShape(), ld.getDtype());
+		Dataset sd = DatasetFactory.ones(s.getShape(), ld.getDType());
 		ld.setSlice(sd, s);
 		Assert.assertEquals(d.getSlice((Slice) null, null, new Slice(1, null), new Slice(1, null, 2)), sd);
 	}
@@ -67,7 +67,7 @@ public class LazyWriteableDatasetTest {
 		LazyWriteableDataset ld = old.getTransposedView();
 		
 		SliceND s = new SliceND(ld.getShape(), new Slice(0, null, 2), new Slice(1, null), null, null);
-		Dataset sd = DatasetFactory.ones(s.getShape(), ld.getDtype());
+		Dataset sd = DatasetFactory.ones(s.getShape(), ld.getDType());
 		ld.setSlice(sd, s);
 		Assert.assertEquals(d.transpose().getSlice(s), sd);
 	}
@@ -79,7 +79,7 @@ public class LazyWriteableDatasetTest {
 		LazyWriteableDataset ld = LazyWriteableDataset.createLazyDataset(d, new int[] {2, 2, 3, 4});
 
 		SliceND s = new SliceND(d.getShapeRef(), ld.getMaxShape(), new Slice(1,2), null, new Slice(1), new Slice(0, null, 2));
-		Dataset sd = DatasetFactory.ones(s.getShape(), d.getDtype());
+		Dataset sd = DatasetFactory.ones(s.getShape(), d.getDType());
 		ld.setSlice(sd, s);
 		Assert.assertEquals(ld.getSlice(s), sd);
 	}	

@@ -9,7 +9,8 @@ Require-Bundle: org.apache.commons.math;bundle-version="[2.1.0,2.2.0)",
  org.slf4j.api;bundle-version="1.7.2"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.eclipse.dataset,
- org.eclipse.dataset.impl,
+ org.eclipse.dataset.dense,
+ org.eclipse.dataset.internal.dense,
  org.eclipse.dataset.internal.utils;x-internal:=true,
  org.eclipse.dataset.io,
  org.eclipse.dataset.metadata

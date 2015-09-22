@@ -10,11 +10,11 @@
 package org.eclipse.dataset.dataset;
 
 import org.eclipse.dataset.Slice;
-import org.eclipse.dataset.impl.BroadcastIterator;
-import org.eclipse.dataset.impl.CompoundDataset;
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DatasetFactory;
-import org.eclipse.dataset.impl.DoubleDataset;
+import org.eclipse.dataset.dense.BroadcastIterator;
+import org.eclipse.dataset.dense.CompoundDataset;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.DatasetFactory;
+import org.eclipse.dataset.internal.dense.DoubleDataset;
 import org.junit.Assert;
 import org.junit.Test;
 

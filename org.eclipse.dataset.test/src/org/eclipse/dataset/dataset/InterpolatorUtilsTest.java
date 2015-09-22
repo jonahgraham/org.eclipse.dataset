@@ -11,10 +11,10 @@ package org.eclipse.dataset.dataset;
 
 import static org.junit.Assert.assertEquals;
 
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DatasetFactory;
-import org.eclipse.dataset.impl.InterpolatorUtils;
-import org.eclipse.dataset.impl.Maths;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.DatasetFactory;
+import org.eclipse.dataset.dense.InterpolatorUtils;
+import org.eclipse.dataset.dense.Maths;
 import org.junit.Test;
 
 public class InterpolatorUtilsTest {

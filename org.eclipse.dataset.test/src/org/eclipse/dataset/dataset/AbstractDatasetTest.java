@@ -24,22 +24,23 @@ import org.apache.commons.math.complex.Complex;
 import org.eclipse.dataset.IDataset;
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.TestUtils;
-import org.eclipse.dataset.impl.AbstractDataset;
-import org.eclipse.dataset.impl.BooleanDataset;
-import org.eclipse.dataset.impl.Comparisons;
-import org.eclipse.dataset.impl.ComplexDoubleDataset;
-import org.eclipse.dataset.impl.CompoundDataset;
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DatasetFactory;
-import org.eclipse.dataset.impl.DatasetUtils;
-import org.eclipse.dataset.impl.DoubleDataset;
-import org.eclipse.dataset.impl.IndexIterator;
-import org.eclipse.dataset.impl.IntegerDataset;
-import org.eclipse.dataset.impl.LongDataset;
-import org.eclipse.dataset.impl.Maths;
-import org.eclipse.dataset.impl.ObjectDataset;
-import org.eclipse.dataset.impl.Random;
-import org.eclipse.dataset.impl.StringDataset;
+import org.eclipse.dataset.dense.Comparisons;
+import org.eclipse.dataset.dense.CompoundDataset;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.DatasetFactory;
+import org.eclipse.dataset.dense.DatasetUtils;
+import org.eclipse.dataset.dense.DTypeUtils;
+import org.eclipse.dataset.dense.IndexIterator;
+import org.eclipse.dataset.dense.Maths;
+import org.eclipse.dataset.dense.Random;
+import org.eclipse.dataset.internal.dense.AbstractDataset;
+import org.eclipse.dataset.internal.dense.BooleanDataset;
+import org.eclipse.dataset.internal.dense.ComplexDoubleDataset;
+import org.eclipse.dataset.internal.dense.DoubleDataset;
+import org.eclipse.dataset.internal.dense.IntegerDataset;
+import org.eclipse.dataset.internal.dense.LongDataset;
+import org.eclipse.dataset.internal.dense.ObjectDataset;
+import org.eclipse.dataset.internal.dense.StringDataset;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -47,42 +48,42 @@ import org.junit.Test;
 public class AbstractDatasetTest {
 	@Test
 	public void testBestDType() {
-		assertEquals(Dataset.FLOAT32, AbstractDataset.getBestDType(Dataset.INT16, Dataset.FLOAT32));
-		assertEquals(Dataset.FLOAT64, AbstractDataset.getBestDType(Dataset.INT32, Dataset.FLOAT32));
-		assertEquals(Dataset.COMPLEX64, AbstractDataset.getBestDType(Dataset.FLOAT32, Dataset.COMPLEX64));
-		assertEquals(Dataset.COMPLEX128, AbstractDataset.getBestDType(Dataset.INT32, Dataset.COMPLEX64));
+		assertEquals(Dataset.FLOAT32, DTypeUtils.getBestDType(Dataset.INT16, Dataset.FLOAT32));
+		assertEquals(Dataset.FLOAT64, DTypeUtils.getBestDType(Dataset.INT32, Dataset.FLOAT32));
+		assertEquals(Dataset.COMPLEX64, DTypeUtils.getBestDType(Dataset.FLOAT32, Dataset.COMPLEX64));
+		assertEquals(Dataset.COMPLEX128, DTypeUtils.getBestDType(Dataset.INT32, Dataset.COMPLEX64));
 	}
 
 	@Test
 	public void testCompatibleShapes() {
-		assertTrue("[] and []", AbstractDataset.areShapesCompatible(new int[] {}, new int[] {}));
-		assertTrue("[1] and []", AbstractDataset.areShapesCompatible(new int[] {1}, new int[] {}));
-		assertFalse("[2] and []", AbstractDataset.areShapesCompatible(new int[] {2}, new int[] {}));
-		assertTrue("[2] and [2]", AbstractDataset.areShapesCompatible(new int[] {2}, new int[] {2}));
-		assertTrue("[3] and [3]", AbstractDataset.areShapesCompatible(new int[] {3}, new int[] {3}));
-		assertTrue("[1,2] and [2]", AbstractDataset.areShapesCompatible(new int[] {1,2}, new int[] {2}));
-		assertTrue("[2] and [1,2]", AbstractDataset.areShapesCompatible(new int[] {2}, new int[] {1,2}));
-		assertFalse("[10,10] and [10,10,10]", AbstractDataset.areShapesCompatible(new int[] {10,10}, new int[] {10,10,10}));
-		assertFalse("[10,10,10] and [10,10]", AbstractDataset.areShapesCompatible(new int[] {10,10,10}, new int[] {10,10}));
-		assertTrue("[2] and [2,1,1,1]", AbstractDataset.areShapesCompatible(new int[] {2}, new int[] {2,1,1,1}));
-		assertTrue("[2,1] and [2,1,1,1]", AbstractDataset.areShapesCompatible(new int[] {2,1}, new int[] {2,1,1,1}));
-		assertFalse("[2,1] and [3,1,1,2]", AbstractDataset.areShapesCompatible(new int[] {2,1}, new int[] {3,1,1,2}));
-		assertFalse("[2,1] and [3,1,1,1]", AbstractDataset.areShapesCompatible(new int[] {2,1}, new int[] {3,1,1,1}));
-		assertTrue("[1,2,1] and [2,1,1,1]", AbstractDataset.areShapesCompatible(new int[] {1,2,1}, new int[] {2,1,1,1}));
-		assertTrue("[1,2,1,3] and [2,1,1,1,3]", AbstractDataset.areShapesCompatible(new int[] {1,2,1,3}, new int[] {2,1,1,1,3}));
-		assertTrue("[2,1,1] and [1,1,2]", AbstractDataset.areShapesCompatible(new int[] {2,1,1}, new int[] {1,1,2}));
-		assertFalse("[2,1,1] and [1,1,3]", AbstractDataset.areShapesCompatible(new int[] {2,1,1}, new int[] {1,1,3}));
-		assertFalse("[2,1,4] and [2,1,1,3]", AbstractDataset.areShapesCompatible(new int[] {2,1,4}, new int[] {2,1,1,3}));
-		assertFalse("[2,1,4] and [2,1,3]", AbstractDataset.areShapesCompatible(new int[] {2,1,4}, new int[] {2,1,3}));
-		assertFalse("[2,4] and [2,3]", AbstractDataset.areShapesCompatible(new int[] {2,4}, new int[] {2,3}));
-		assertTrue("[2,1,4] and [2,1,4]", AbstractDataset.areShapesCompatible(new int[] {2,1,4}, new int[] {2,1,4}));
-		assertTrue("[2,1,4] and [2,1,1,4]", AbstractDataset.areShapesCompatible(new int[] {2,1,4}, new int[] {2,1,1,4}));
-		assertFalse("[2,4] and [2,4,3]", AbstractDataset.areShapesCompatible(new int[] {2,4}, new int[] {2,4,3}));
-		assertFalse("[2,1,4] and [2,4,3]", AbstractDataset.areShapesCompatible(new int[] {2,1,4}, new int[] {2,4,3}));
-		assertTrue(AbstractDataset.areShapesCompatible(new int[] {}, new int[] {}, 0));
-		assertTrue(AbstractDataset.areShapesCompatible(new int[] {2}, new int[] {3}, 0));
-		assertFalse(AbstractDataset.areShapesCompatible(new int[] {2,4}, new int[] {3,4}, 1));
-		assertTrue(AbstractDataset.areShapesCompatible(new int[] {2,4}, new int[] {3,4}, 0));
+		assertTrue("[] and []", DatasetUtils.areShapesCompatible(new int[] {}, new int[] {}));
+		assertTrue("[1] and []", DatasetUtils.areShapesCompatible(new int[] {1}, new int[] {}));
+		assertFalse("[2] and []", DatasetUtils.areShapesCompatible(new int[] {2}, new int[] {}));
+		assertTrue("[2] and [2]", DatasetUtils.areShapesCompatible(new int[] {2}, new int[] {2}));
+		assertTrue("[3] and [3]", DatasetUtils.areShapesCompatible(new int[] {3}, new int[] {3}));
+		assertTrue("[1,2] and [2]", DatasetUtils.areShapesCompatible(new int[] {1,2}, new int[] {2}));
+		assertTrue("[2] and [1,2]", DatasetUtils.areShapesCompatible(new int[] {2}, new int[] {1,2}));
+		assertFalse("[10,10] and [10,10,10]", DatasetUtils.areShapesCompatible(new int[] {10,10}, new int[] {10,10,10}));
+		assertFalse("[10,10,10] and [10,10]", DatasetUtils.areShapesCompatible(new int[] {10,10,10}, new int[] {10,10}));
+		assertTrue("[2] and [2,1,1,1]", DatasetUtils.areShapesCompatible(new int[] {2}, new int[] {2,1,1,1}));
+		assertTrue("[2,1] and [2,1,1,1]", DatasetUtils.areShapesCompatible(new int[] {2,1}, new int[] {2,1,1,1}));
+		assertFalse("[2,1] and [3,1,1,2]", DatasetUtils.areShapesCompatible(new int[] {2,1}, new int[] {3,1,1,2}));
+		assertFalse("[2,1] and [3,1,1,1]", DatasetUtils.areShapesCompatible(new int[] {2,1}, new int[] {3,1,1,1}));
+		assertTrue("[1,2,1] and [2,1,1,1]", DatasetUtils.areShapesCompatible(new int[] {1,2,1}, new int[] {2,1,1,1}));
+		assertTrue("[1,2,1,3] and [2,1,1,1,3]", DatasetUtils.areShapesCompatible(new int[] {1,2,1,3}, new int[] {2,1,1,1,3}));
+		assertTrue("[2,1,1] and [1,1,2]", DatasetUtils.areShapesCompatible(new int[] {2,1,1}, new int[] {1,1,2}));
+		assertFalse("[2,1,1] and [1,1,3]", DatasetUtils.areShapesCompatible(new int[] {2,1,1}, new int[] {1,1,3}));
+		assertFalse("[2,1,4] and [2,1,1,3]", DatasetUtils.areShapesCompatible(new int[] {2,1,4}, new int[] {2,1,1,3}));
+		assertFalse("[2,1,4] and [2,1,3]", DatasetUtils.areShapesCompatible(new int[] {2,1,4}, new int[] {2,1,3}));
+		assertFalse("[2,4] and [2,3]", DatasetUtils.areShapesCompatible(new int[] {2,4}, new int[] {2,3}));
+		assertTrue("[2,1,4] and [2,1,4]", DatasetUtils.areShapesCompatible(new int[] {2,1,4}, new int[] {2,1,4}));
+		assertTrue("[2,1,4] and [2,1,1,4]", DatasetUtils.areShapesCompatible(new int[] {2,1,4}, new int[] {2,1,1,4}));
+		assertFalse("[2,4] and [2,4,3]", DatasetUtils.areShapesCompatible(new int[] {2,4}, new int[] {2,4,3}));
+		assertFalse("[2,1,4] and [2,4,3]", DatasetUtils.areShapesCompatible(new int[] {2,1,4}, new int[] {2,4,3}));
+		assertTrue(DatasetUtils.areShapesCompatible(new int[] {}, new int[] {}, 0));
+		assertTrue(DatasetUtils.areShapesCompatible(new int[] {2}, new int[] {3}, 0));
+		assertFalse(DatasetUtils.areShapesCompatible(new int[] {2,4}, new int[] {3,4}, 1));
+		assertTrue(DatasetUtils.areShapesCompatible(new int[] {2,4}, new int[] {3,4}, 0));
 //		assertTrue(AbstractDataset.areShapesCompatible(new int[] {}, new int[] {}));
 	}
 
@@ -402,44 +403,44 @@ public class AbstractDatasetTest {
 
 		int[] os, ns;
 		os = new int[] { 2, 1, 5 };
-		ns = AbstractDataset.squeezeShape(os, false);
+		ns = DatasetUtils.squeezeShape(os, false);
 		assertEquals(2, ns.length);
 		assertEquals(2, ns[0]);
 		assertEquals(5, ns[1]);
-		ns = AbstractDataset.squeezeShape(os, true);
+		ns = DatasetUtils.squeezeShape(os, true);
 		assertEquals(3, ns.length);
 		assertEquals(2, ns[0]);
 		assertEquals(1, ns[1]);
 		assertEquals(5, ns[2]);
 
 		os = new int[] { 2, 1, 5, 1 };
-		ns = AbstractDataset.squeezeShape(os, false);
+		ns = DatasetUtils.squeezeShape(os, false);
 		assertEquals(2, ns.length);
 		assertEquals(2, ns[0]);
 		assertEquals(5, ns[1]);
-		ns = AbstractDataset.squeezeShape(os, true);
+		ns = DatasetUtils.squeezeShape(os, true);
 		assertEquals(3, ns.length);
 		assertEquals(2, ns[0]);
 		assertEquals(1, ns[1]);
 		assertEquals(5, ns[2]);
 
 		os = new int[] { 1, 2, 1, 5 };
-		ns = AbstractDataset.squeezeShape(os, false);
+		ns = DatasetUtils.squeezeShape(os, false);
 		assertEquals(2, ns.length);
 		assertEquals(2, ns[0]);
 		assertEquals(5, ns[1]);
-		ns = AbstractDataset.squeezeShape(os, true);
+		ns = DatasetUtils.squeezeShape(os, true);
 		assertEquals(3, ns.length);
 		assertEquals(2, ns[0]);
 		assertEquals(1, ns[1]);
 		assertEquals(5, ns[2]);
 
 		os = new int[] { 1, 2, 1, 5, 1 };
-		ns = AbstractDataset.squeezeShape(os, false);
+		ns = DatasetUtils.squeezeShape(os, false);
 		assertEquals(2, ns.length);
 		assertEquals(2, ns[0]);
 		assertEquals(5, ns[1]);
-		ns = AbstractDataset.squeezeShape(os, true);
+		ns = DatasetUtils.squeezeShape(os, true);
 		assertEquals(3, ns.length);
 		assertEquals(2, ns[0]);
 		assertEquals(1, ns[1]);
@@ -1226,7 +1227,7 @@ public class AbstractDatasetTest {
 		
 		// check compatibility
 		try {
-			AbstractDataset.checkCompatibility(a, error);
+			DatasetUtils.checkCompatibility(a, error);
 		} catch (Exception e) {
 			fail("Error shape is not the same as input datasets");
 		}
@@ -1247,7 +1248,7 @@ public class AbstractDatasetTest {
 		
 		// check compatibility
 		try {
-			AbstractDataset.checkCompatibility(a, error2);
+			DatasetUtils.checkCompatibility(a, error2);
 		} catch (Exception e) {
 			fail("Error shape is not the same as input datasets");
 		}
@@ -1276,7 +1277,7 @@ public class AbstractDatasetTest {
 		
 		// check compatibility
 		try {
-			AbstractDataset.checkCompatibility(a, error);
+			DatasetUtils.checkCompatibility(a, error);
 		} catch (Exception e) {
 			fail("Error shape is not the same as input datasets");
 		}
@@ -1297,7 +1298,7 @@ public class AbstractDatasetTest {
 		
 		// check compatibility
 		try {
-			AbstractDataset.checkCompatibility(a, error2);
+			DatasetUtils.checkCompatibility(a, error2);
 		} catch (Exception e) {
 			fail("Error shape is not the same as input datasets");
 		}
@@ -1328,7 +1329,7 @@ public class AbstractDatasetTest {
 		// now for pulling out the full error array and check compatibility
 		Dataset error = a.getError();
 		try {
-			AbstractDataset.checkCompatibility(a, error);
+			DatasetUtils.checkCompatibility(a, error);
 		} catch (Exception e) {
 			fail("Error shape is not the same as input datasets");
 		}
@@ -1344,7 +1345,7 @@ public class AbstractDatasetTest {
 		// now for pulling out the full error array and check compatibility
 		error = a.getError();
 		try {
-			AbstractDataset.checkCompatibility(a, error);
+			DatasetUtils.checkCompatibility(a, error);
 		} catch (Exception e) {
 			fail("Error shape is not the same as input datasets");
 		}
@@ -1360,7 +1361,7 @@ public class AbstractDatasetTest {
 		// now for pulling out the full error array and check compatibility
 		error = a.getError();
 		try {
-			AbstractDataset.checkCompatibility(a, error);
+			DatasetUtils.checkCompatibility(a, error);
 		} catch (Exception e) {
 			fail("Error shape is not the same as input datasets");
 		}
@@ -1608,9 +1609,9 @@ public class AbstractDatasetTest {
 	}
 
 	public static void checkDatasets(Dataset expected, Dataset calc, boolean valuesOnly, double relTol, double absTol) {
-		int type = expected.getDtype();
+		int type = expected.getDType();
 		if (!valuesOnly) {
-			Assert.assertEquals("Type", type, calc.getDtype());
+			Assert.assertEquals("Type", type, calc.getDType());
 			Assert.assertEquals("Items", expected.getElementsPerItem(), calc.getElementsPerItem());
 		}
 		Assert.assertEquals("Size", expected.getSize(), calc.getSize());
@@ -1750,24 +1751,24 @@ public class AbstractDatasetTest {
 		int[] xxxlarge = new int[] {1024, 1024, 1024, 1024};
 		int[] bad = new int[] {1024, -1, 1024};
 
-		assertEquals(0, AbstractDataset.calcLongSize(zero));
-		assertEquals(0, AbstractDataset.calcSize(zero));
+		assertEquals(0, DatasetUtils.calculateLongSize(zero));
+		assertEquals(0, DatasetUtils.calculateSize(zero));
 
-		assertEquals(1, AbstractDataset.calcLongSize(one));
-		assertEquals(1, AbstractDataset.calcSize(one));
+		assertEquals(1, DatasetUtils.calculateLongSize(one));
+		assertEquals(1, DatasetUtils.calculateSize(one));
 
-		assertEquals(2, AbstractDataset.calcLongSize(small));
-		assertEquals(2, AbstractDataset.calcSize(small));
+		assertEquals(2, DatasetUtils.calculateLongSize(small));
+		assertEquals(2, DatasetUtils.calculateSize(small));
 
-		assertEquals(1024*1024, AbstractDataset.calcLongSize(medium));
-		assertEquals(1024*1024, AbstractDataset.calcSize(medium));
+		assertEquals(1024*1024, DatasetUtils.calculateLongSize(medium));
+		assertEquals(1024*1024, DatasetUtils.calculateSize(medium));
 
-		assertEquals(1024*1024*1024, AbstractDataset.calcLongSize(large));
-		assertEquals(1024*1024*1024, AbstractDataset.calcSize(large));
+		assertEquals(1024*1024*1024, DatasetUtils.calculateLongSize(large));
+		assertEquals(1024*1024*1024, DatasetUtils.calculateSize(large));
 
-		assertEquals(1024*1024*1024*1024L, AbstractDataset.calcLongSize(xxxlarge));
+		assertEquals(1024*1024*1024*1024L, DatasetUtils.calculateLongSize(xxxlarge));
 		try {
-			AbstractDataset.calcSize(xxxlarge);
+			DatasetUtils.calculateSize(xxxlarge);
 			fail("Should have thrown an illegal argument exception");
 		} catch (IllegalArgumentException e) {
 			// expected
@@ -1776,7 +1777,7 @@ public class AbstractDatasetTest {
 		}
 
 		try {
-			AbstractDataset.calcLongSize(bad);
+			DatasetUtils.calculateLongSize(bad);
 			fail("Should have thrown an illegal argument exception");
 		} catch (IllegalArgumentException e) {
 			// expected
@@ -1785,7 +1786,7 @@ public class AbstractDatasetTest {
 		}
 
 		try {
-			AbstractDataset.calcSize(bad);
+			DatasetUtils.calculateSize(bad);
 			fail("Should have thrown an illegal argument exception");
 		} catch (IllegalArgumentException e) {
 			// expected
@@ -1828,7 +1829,7 @@ public class AbstractDatasetTest {
 	public void testPositions() {
 		int[] shape = new int[] { 23, 34, 2 };
 		int[] indexes = new int[] {1, 10, 70, 171};
-		List<IntegerDataset> list = DatasetUtils.calcPositionsFromIndexes(new IntegerDataset(indexes, 2, 2), shape);
+		List<IntegerDataset> list = DatasetUtils.calculatePositionsFromIndexes(new IntegerDataset(indexes, 2, 2), shape);
 
 		Assert.assertEquals(shape.length, list.size());
 		IntegerDataset l = list.get(0);
@@ -1857,38 +1858,38 @@ public class AbstractDatasetTest {
 		list.add(new IntegerDataset(new int[] {0, 0, 1, 2}, 2, 2));
 		list.add(new IntegerDataset(new int[] {0, 5, 1, 17}, 2, 2));
 		list.add(new IntegerDataset(new int[] {1, 0, 0, 1}, 2, 2));
-		IntegerDataset indexes = DatasetUtils.calcIndexesFromPositions(list, shape, null);
+		IntegerDataset indexes = DatasetUtils.calculateIndexesFromPositions(list, shape, null);
 
 		checkDatasets(indexes, new IntegerDataset(new int[] {1, 10, 70, 171}, 2, 2));
 
 		list.set(1, new IntegerDataset(new int[] {0, -5, 1, 17}, 2, 2));
 		try {
-			indexes = DatasetUtils.calcIndexesFromPositions(list, shape, null);
+			indexes = DatasetUtils.calculateIndexesFromPositions(list, shape, null);
 			Assert.fail("Should have thrown an exception");
 		} catch (Exception e) {
 		}
 
 		list.set(1, new IntegerDataset(new int[] {0, 34, 1, 17}, 2, 2));
 		try {
-			indexes = DatasetUtils.calcIndexesFromPositions(list, shape, null);
+			indexes = DatasetUtils.calculateIndexesFromPositions(list, shape, null);
 			Assert.fail("Should have thrown an exception");
 		} catch (Exception e) {
 		}
 
 		list.set(1, new IntegerDataset(new int[] {0, 39, 1, 17}, 2, 2));
-		indexes = DatasetUtils.calcIndexesFromPositions(list, shape, 1);
+		indexes = DatasetUtils.calculateIndexesFromPositions(list, shape, 1);
 		checkDatasets(indexes, new IntegerDataset(new int[] {1, 10, 70, 171}, 2, 2));
 
 		list.set(1, new IntegerDataset(new int[] {0, -29, 1, 17}, 2, 2));
-		indexes = DatasetUtils.calcIndexesFromPositions(list, shape, 1);
+		indexes = DatasetUtils.calculateIndexesFromPositions(list, shape, 1);
 		checkDatasets(indexes, new IntegerDataset(new int[] {1, 10, 70, 171}, 2, 2));
 
 		list.set(1, new IntegerDataset(new int[] {-2, 5, 1, 17}, 2, 2));
-		indexes = DatasetUtils.calcIndexesFromPositions(list, shape, 2);
+		indexes = DatasetUtils.calculateIndexesFromPositions(list, shape, 2);
 		checkDatasets(indexes, new IntegerDataset(new int[] {1, 10, 70, 171}, 2, 2));
 
 		list.set(1, new IntegerDataset(new int[] {34, 5, 1, 17}, 2, 2));
-		indexes = DatasetUtils.calcIndexesFromPositions(list, shape, 2);
+		indexes = DatasetUtils.calculateIndexesFromPositions(list, shape, 2);
 		checkDatasets(indexes, new IntegerDataset(new int[] {33*2 + 1, 10, 70, 171}, 2, 2));
 	}
 
@@ -1920,7 +1921,7 @@ public class AbstractDatasetTest {
 	public void testSetByPosition() {
 		Dataset a = DatasetFactory.createRange(10, Dataset.INT32);
 		a.max();
-		List<IntegerDataset> list = Comparisons.nonZero(Comparisons.greaterThan(a, 5));
+		List<Dataset> list = Comparisons.nonZero(Comparisons.greaterThan(a, 5));
 		a.setByIndexes(0, list.get(0));
 		Assert.assertEquals(a.max().longValue(), 5);
 

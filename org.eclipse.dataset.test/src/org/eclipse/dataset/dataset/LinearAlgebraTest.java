@@ -15,16 +15,16 @@ import static org.junit.Assert.assertTrue;
 
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.TestUtils;
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DatasetFactory;
-import org.eclipse.dataset.impl.DatasetUtils;
-import org.eclipse.dataset.impl.DoubleDataset;
-import org.eclipse.dataset.impl.FloatDataset;
-import org.eclipse.dataset.impl.IntegerDataset;
-import org.eclipse.dataset.impl.LinearAlgebra;
-import org.eclipse.dataset.impl.Maths;
-import org.eclipse.dataset.impl.Random;
-import org.eclipse.dataset.impl.LinearAlgebra.NormOrder;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.DatasetFactory;
+import org.eclipse.dataset.dense.DatasetUtils;
+import org.eclipse.dataset.dense.LinearAlgebra;
+import org.eclipse.dataset.dense.Maths;
+import org.eclipse.dataset.dense.Random;
+import org.eclipse.dataset.dense.LinearAlgebra.NormOrder;
+import org.eclipse.dataset.internal.dense.DoubleDataset;
+import org.eclipse.dataset.internal.dense.FloatDataset;
+import org.eclipse.dataset.internal.dense.IntegerDataset;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -48,11 +48,11 @@ public class LinearAlgebraTest {
 		System.out.printf("Time taken %dus\n", start/1000);
 
 		assertArrayEquals("Shape", new int[] {5, 2}, c.getShape());
-		assertEquals("Type", Dataset.FLOAT32, c.getDtype());
+		assertEquals("Type", Dataset.FLOAT32, c.getDType());
 
 		Dataset d = new DoubleDataset(new double[] { 4400., 4730.,
 			4532.,  4874., 4664., 5018., 4796.,  5162., 4928.,  5306. }, 5, 2);
-		assertTrue("Data does not match", d.cast(c.getDtype()).equals(c));
+		assertTrue("Data does not match", d.cast(c.getDType()).equals(c));
 
 		int n = 16;
 		a = DatasetFactory.createRange(20*n, Dataset.FLOAT32).reshape(n, 4, 5);

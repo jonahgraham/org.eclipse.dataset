@@ -12,14 +12,14 @@ package org.eclipse.dataset.dataset;
 import static org.junit.Assert.assertEquals;
 
 import org.eclipse.dataset.TestUtils;
-import org.eclipse.dataset.impl.CompoundDataset;
-import org.eclipse.dataset.impl.CompoundShortDataset;
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DatasetFactory;
-import org.eclipse.dataset.impl.DoubleDataset;
-import org.eclipse.dataset.impl.FloatDataset;
-import org.eclipse.dataset.impl.RGBDataset;
-import org.eclipse.dataset.impl.ShortDataset;
+import org.eclipse.dataset.dense.CompoundDataset;
+import org.eclipse.dataset.dense.Dataset;
+import org.eclipse.dataset.dense.DatasetFactory;
+import org.eclipse.dataset.dense.RGBDataset;
+import org.eclipse.dataset.internal.dense.CompoundShortDataset;
+import org.eclipse.dataset.internal.dense.DoubleDataset;
+import org.eclipse.dataset.internal.dense.FloatDataset;
+import org.eclipse.dataset.internal.dense.ShortDataset;
 import org.junit.Test;
 
 /**
