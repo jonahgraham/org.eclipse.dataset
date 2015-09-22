@@ -16,7 +16,6 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Map;
 
-import org.eclipse.dataset.DatasetException;
 import org.eclipse.dataset.MetadataException;
 import org.eclipse.dataset.io.IDataAnalysisObject;
 
