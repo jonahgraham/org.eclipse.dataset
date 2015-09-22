@@ -10,7 +10,7 @@ Require-Bundle: org.apache.commons.math;bundle-version="[2.1.0,2.2.0)",
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.eclipse.dataset,
  org.eclipse.dataset.dense,
- org.eclipse.dataset.internal.dense,
+ org.eclipse.dataset.internal.dense;x-internal:=true,
  org.eclipse.dataset.internal.utils;x-internal:=true,
  org.eclipse.dataset.io,
  org.eclipse.dataset.metadata
