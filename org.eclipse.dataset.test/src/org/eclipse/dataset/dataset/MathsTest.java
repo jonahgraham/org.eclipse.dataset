@@ -18,7 +18,6 @@ import java.util.Map;
 
 import org.apache.commons.math.complex.Complex;
 import org.eclipse.dataset.IndexIterator;
-import org.eclipse.dataset.Random;
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.TestUtils;
 import org.eclipse.dataset.impl.ByteDataset;
@@ -33,6 +32,7 @@ import org.eclipse.dataset.impl.DoubleDataset;
 import org.eclipse.dataset.impl.FloatDataset;
 import org.eclipse.dataset.impl.IntegerDataset;
 import org.eclipse.dataset.impl.Maths;
+import org.eclipse.dataset.impl.Random;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

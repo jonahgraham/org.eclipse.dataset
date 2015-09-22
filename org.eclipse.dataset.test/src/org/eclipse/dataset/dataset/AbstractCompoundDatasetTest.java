@@ -18,7 +18,6 @@ import java.util.Arrays;
 
 import org.eclipse.dataset.IndexIterator;
 import org.eclipse.dataset.PositionIterator;
-import org.eclipse.dataset.Random;
 import org.eclipse.dataset.impl.AbstractCompoundDataset;
 import org.eclipse.dataset.impl.AbstractDataset;
 import org.eclipse.dataset.impl.CompoundDataset;
@@ -29,6 +28,7 @@ import org.eclipse.dataset.impl.DatasetFactory;
 import org.eclipse.dataset.impl.DatasetUtils;
 import org.eclipse.dataset.impl.Maths;
 import org.eclipse.dataset.impl.RGBDataset;
+import org.eclipse.dataset.impl.Random;
 import org.junit.Test;
 
 public class AbstractCompoundDatasetTest {

@@ -12,9 +12,9 @@ package org.eclipse.dataset.dataset;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.dataset.CollectionStats;
 import org.eclipse.dataset.DoubleUtils;
 import org.eclipse.dataset.IDataset;
+import org.eclipse.dataset.impl.CollectionStats;
 import org.eclipse.dataset.impl.Dataset;
 import org.eclipse.dataset.impl.DoubleDataset;
 import org.junit.Ignore;

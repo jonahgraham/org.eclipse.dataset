@@ -10,7 +10,7 @@
  *    Peter Chang - initial API and implementation and/or initial documentation
  *******************************************************************************/
 
-package org.eclipse.dataset;
+package org.eclipse.dataset.impl;
 
 import java.util.Arrays;
 import java.util.List;
@@ -33,15 +33,8 @@ import org.apache.commons.math.linear.RealMatrix;
 import org.apache.commons.math.linear.RealVector;
 import org.apache.commons.math.linear.SingularValueDecomposition;
 import org.apache.commons.math.linear.SingularValueDecompositionImpl;
-import org.eclipse.dataset.impl.AbstractCompoundDataset;
-import org.eclipse.dataset.impl.AbstractDataset;
-import org.eclipse.dataset.impl.BroadcastIterator;
-import org.eclipse.dataset.impl.ComplexDoubleDataset;
-import org.eclipse.dataset.impl.CompoundLongDataset;
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DatasetFactory;
-import org.eclipse.dataset.impl.DoubleDataset;
-import org.eclipse.dataset.impl.SliceIterator;
+import org.eclipse.dataset.IndexIterator;
+import org.eclipse.dataset.PositionIterator;
 import org.eclipse.dataset.internal.utils.MissingFromMath2;
 
 

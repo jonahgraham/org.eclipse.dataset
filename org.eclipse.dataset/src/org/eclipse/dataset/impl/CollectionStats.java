@@ -10,16 +10,16 @@
  *    Peter Chang - initial API and implementation and/or initial documentation
  *******************************************************************************/
 
-package org.eclipse.dataset;
+package org.eclipse.dataset.impl;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DoubleDataset;
-import org.eclipse.dataset.impl.Stats;
+import org.eclipse.dataset.IDataset;
+import org.eclipse.dataset.IndexIterator;
+import org.eclipse.dataset.PositionIterator;
 
 /**
  * Statistics of data set lists. Used for image processing.

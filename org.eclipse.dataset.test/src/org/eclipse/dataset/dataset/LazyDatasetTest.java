@@ -10,12 +10,12 @@
 package org.eclipse.dataset.dataset;
 
 import org.eclipse.dataset.ILazyDataset;
-import org.eclipse.dataset.Random;
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.SliceND;
 import org.eclipse.dataset.TestUtils;
 import org.eclipse.dataset.impl.Dataset;
 import org.eclipse.dataset.impl.LazyDataset;
+import org.eclipse.dataset.impl.Random;
 import org.junit.Assert;
 import org.junit.Test;
 

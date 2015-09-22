@@ -7,11 +7,11 @@
  * http://www.eclipse.org/legal/epl-v10.html
  */
 
-package org.eclipse.dataset;
+package org.eclipse.dataset.impl;
 
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DatasetUtils;
-import org.eclipse.dataset.impl.DoubleDataset;
+import org.eclipse.dataset.IDataset;
+import org.eclipse.dataset.ILazyDataset;
+import org.eclipse.dataset.IndexIterator;
 
 /**
  * A running mean class

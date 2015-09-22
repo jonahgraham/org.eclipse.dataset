@@ -10,13 +10,13 @@
  *    Peter Chang - initial API and implementation and/or initial documentation
  *******************************************************************************/
 
-package org.eclipse.dataset;
+package org.eclipse.dataset.impl;
 
 import java.util.Arrays;
 
-import org.eclipse.dataset.impl.AbstractDataset;
-import org.eclipse.dataset.impl.Dataset;
-import org.eclipse.dataset.impl.DatasetFactory;
+import org.eclipse.dataset.IDataset;
+import org.eclipse.dataset.ILazyDataset;
+import org.eclipse.dataset.PositionIterator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -11,9 +11,9 @@ package org.eclipse.dataset.dataset;
 
 import static org.junit.Assert.assertEquals;
 
-import org.eclipse.dataset.Random;
 import org.eclipse.dataset.impl.DoubleDataset;
 import org.eclipse.dataset.impl.IntegerDataset;
+import org.eclipse.dataset.impl.Random;
 import org.junit.Test;
 
 /**

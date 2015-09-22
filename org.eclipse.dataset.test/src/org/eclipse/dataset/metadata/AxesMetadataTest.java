@@ -18,10 +18,10 @@ import java.util.Arrays;
 
 import org.eclipse.dataset.IDataset;
 import org.eclipse.dataset.ILazyDataset;
-import org.eclipse.dataset.Random;
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.impl.Dataset;
 import org.eclipse.dataset.impl.DoubleDataset;
+import org.eclipse.dataset.impl.Random;
 import org.eclipse.dataset.metadata.AxesMetadata;
 import org.eclipse.dataset.metadata.AxesMetadataImpl;
 import org.eclipse.dataset.metadata.ErrorMetadataImpl;

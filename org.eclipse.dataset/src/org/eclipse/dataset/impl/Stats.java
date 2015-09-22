@@ -21,7 +21,6 @@ import org.apache.commons.math.complex.Complex;
 import org.apache.commons.math.stat.descriptive.moment.Kurtosis;
 import org.apache.commons.math.stat.descriptive.moment.Skewness;
 import org.eclipse.dataset.IndexIterator;
-import org.eclipse.dataset.LinearAlgebra;
 import org.eclipse.dataset.PositionIterator;
 
 

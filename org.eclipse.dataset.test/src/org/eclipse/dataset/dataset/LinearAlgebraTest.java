@@ -13,18 +13,18 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.eclipse.dataset.LinearAlgebra;
-import org.eclipse.dataset.Random;
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.TestUtils;
-import org.eclipse.dataset.LinearAlgebra.NormOrder;
 import org.eclipse.dataset.impl.Dataset;
 import org.eclipse.dataset.impl.DatasetFactory;
 import org.eclipse.dataset.impl.DatasetUtils;
 import org.eclipse.dataset.impl.DoubleDataset;
 import org.eclipse.dataset.impl.FloatDataset;
 import org.eclipse.dataset.impl.IntegerDataset;
+import org.eclipse.dataset.impl.LinearAlgebra;
 import org.eclipse.dataset.impl.Maths;
+import org.eclipse.dataset.impl.Random;
+import org.eclipse.dataset.impl.LinearAlgebra.NormOrder;
 import org.junit.Ignore;
 import org.junit.Test;
 

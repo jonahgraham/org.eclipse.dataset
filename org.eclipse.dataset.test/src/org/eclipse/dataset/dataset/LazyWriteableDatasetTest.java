@@ -9,12 +9,12 @@
 
 package org.eclipse.dataset.dataset;
 
-import org.eclipse.dataset.Random;
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.SliceND;
 import org.eclipse.dataset.impl.Dataset;
 import org.eclipse.dataset.impl.DatasetFactory;
 import org.eclipse.dataset.impl.LazyWriteableDataset;
+import org.eclipse.dataset.impl.Random;
 import org.junit.Assert;
 import org.junit.Test;
 
