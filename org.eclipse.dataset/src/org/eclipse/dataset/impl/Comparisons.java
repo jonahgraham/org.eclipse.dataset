@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.dataset.IDataset;
-import org.eclipse.dataset.IndexIterator;
+import org.eclipse.dataset.IDatasetIterator;
 
 /**
  * Comparison and logical methods
@@ -889,7 +889,7 @@ public class Comparisons {
 
 		BooleanDataset result = new BooleanDataset(nshape);
 
-		IndexIterator qiter = result.getIterator(true);
+		IDatasetIterator qiter = result.getIterator(true);
 		int[] qpos = qiter.getPos();
 		int[] spos = oshape;
 
@@ -954,7 +954,7 @@ public class Comparisons {
 
 		BooleanDataset result = new BooleanDataset(nshape);
 
-		IndexIterator qiter = result.getIterator(true);
+		IDatasetIterator qiter = result.getIterator(true);
 		int[] qpos = qiter.getPos();
 		int[] spos = oshape;
 

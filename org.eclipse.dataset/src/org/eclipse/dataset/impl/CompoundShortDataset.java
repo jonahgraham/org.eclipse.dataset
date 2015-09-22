@@ -18,7 +18,7 @@ import java.util.Arrays;
 
 import org.apache.commons.math.complex.Complex;
 import org.eclipse.dataset.IDataset;
-import org.eclipse.dataset.IndexIterator;
+import org.eclipse.dataset.IDatasetIterator;
 import org.eclipse.dataset.PositionIterator;
 import org.eclipse.dataset.Slice;
 
@@ -1139,7 +1139,7 @@ public class CompoundShortDataset extends AbstractCompoundDataset {
 					}
 				}
 			} else {
-				final IndexIterator oiter = new PositionIterator(oshape);
+				final IDatasetIterator oiter = new PositionIterator(oshape);
 				final int[] pos = oiter.getPos();
 
 				if (ds.getElementsPerItem() == 1) {

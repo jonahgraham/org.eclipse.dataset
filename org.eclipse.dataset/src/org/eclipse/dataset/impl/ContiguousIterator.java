@@ -12,8 +12,6 @@
 
 package org.eclipse.dataset.impl;
 
-import org.eclipse.dataset.IndexIterator;
-
 /**
  * Class to run over contiguous datasets
  */

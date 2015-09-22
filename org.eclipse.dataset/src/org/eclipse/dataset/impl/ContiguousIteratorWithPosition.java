@@ -14,8 +14,6 @@ package org.eclipse.dataset.impl;
 
 import java.util.Arrays;
 
-import org.eclipse.dataset.IndexIterator;
-
 
 /**
  * Class to run over contiguous datasets and keep track of position. Note this is slower than ContiguousIterator

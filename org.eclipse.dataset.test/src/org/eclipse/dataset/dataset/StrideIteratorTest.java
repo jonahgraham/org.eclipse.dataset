@@ -16,9 +16,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.dataset.IndexIterator;
+import org.eclipse.dataset.IDatasetIterator;
 import org.eclipse.dataset.impl.Dataset;
 import org.eclipse.dataset.impl.DatasetFactory;
+import org.eclipse.dataset.impl.IndexIterator;
 import org.eclipse.dataset.impl.SliceIterator;
 import org.eclipse.dataset.impl.StrideIterator;
 import org.junit.Test;
@@ -196,7 +197,7 @@ public class StrideIteratorTest {
 	}
 
 	private void timeCurrentSlice(Dataset t, int[] start, int[] stop, int[] step) {
-		IndexIterator iter = t.getSliceIterator(start, stop, step);
+		IDatasetIterator iter = t.getSliceIterator(start, stop, step);
 
 		while (iter.hasNext()) {
 		}

@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.dataset.IDataset;
-import org.eclipse.dataset.IndexIterator;
+import org.eclipse.dataset.IDatasetIterator;
 import org.eclipse.dataset.PositionIterator;
 
 /**
@@ -77,7 +77,7 @@ public class CollectionStats {
 		int[] shape = assertShapes(sets);
 		final DoubleDataset result = new DoubleDataset(shape);
         final double[] rData = result.getData();
-        final IndexIterator iter = new PositionIterator(shape);
+        final IDatasetIterator iter = new PositionIterator(shape);
         final int[] pos = iter.getPos();
 
         final int len = sets.size();

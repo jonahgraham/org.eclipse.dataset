@@ -13,10 +13,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.eclipse.dataset.IndexIterator;
 import org.eclipse.dataset.impl.Dataset;
 import org.eclipse.dataset.impl.DatasetFactory;
 import org.eclipse.dataset.impl.DoubleDataset;
+import org.eclipse.dataset.impl.IndexIterator;
 import org.eclipse.dataset.impl.IntegerDataset;
 import org.eclipse.dataset.impl.IntegerIterator;
 import org.junit.Assert;

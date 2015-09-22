@@ -19,8 +19,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.dataset.IDataset;
+import org.eclipse.dataset.IDatasetIterator;
 import org.eclipse.dataset.ILazyDataset;
-import org.eclipse.dataset.IndexIterator;
 import org.eclipse.dataset.PositionIterator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -246,7 +246,7 @@ public class DatasetUtils {
 
 		if (manyColumns) {
 			// generate each start point and put a slice in
-			IndexIterator iter = tdata.getSliceIterator(null, null, shape);
+			IDatasetIterator iter = tdata.getSliceIterator(null, null, shape);
 			SliceIterator siter = (SliceIterator) tdata.getSliceIterator(null, shape, null); 
 			final int[] pos = iter.getPos();
 			while (iter.hasNext()) {
@@ -2288,7 +2288,7 @@ public class DatasetUtils {
 		for (int i = 0; i < rank; i++) {
 			posns.add(new IntegerDataset(iShape));
 		}
-		IndexIterator it = indices.getIterator(true);
+		IDatasetIterator it = indices.getIterator(true);
 		int[] pos = it.getPos();
 		while (it.hasNext()) {
 			int n = indices.getInt(pos);
@@ -2333,7 +2333,7 @@ public class DatasetUtils {
 
 		Dataset p = positions.get(0);
 		IntegerDataset indexes = new IntegerDataset(p.getShapeRef());
-		IndexIterator it = p.getIterator(true);
+		IDatasetIterator it = p.getIterator(true);
 		int[] iPos = it.getPos();
 		int[] tPos = new int[rank];
 		while (it.hasNext()) {

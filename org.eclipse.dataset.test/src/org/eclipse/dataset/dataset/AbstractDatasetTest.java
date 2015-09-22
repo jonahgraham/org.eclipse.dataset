@@ -22,7 +22,6 @@ import java.util.List;
 
 import org.apache.commons.math.complex.Complex;
 import org.eclipse.dataset.IDataset;
-import org.eclipse.dataset.IndexIterator;
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.TestUtils;
 import org.eclipse.dataset.impl.AbstractDataset;
@@ -34,6 +33,7 @@ import org.eclipse.dataset.impl.Dataset;
 import org.eclipse.dataset.impl.DatasetFactory;
 import org.eclipse.dataset.impl.DatasetUtils;
 import org.eclipse.dataset.impl.DoubleDataset;
+import org.eclipse.dataset.impl.IndexIterator;
 import org.eclipse.dataset.impl.IntegerDataset;
 import org.eclipse.dataset.impl.LongDataset;
 import org.eclipse.dataset.impl.Maths;

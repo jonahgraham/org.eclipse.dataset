@@ -13,8 +13,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.eclipse.dataset.IndexIterator;
-
 /**
  * Base class for broadcast iterators. For speed, there are public members. Note, index is not updated
  */

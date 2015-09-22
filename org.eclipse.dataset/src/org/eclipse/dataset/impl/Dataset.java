@@ -17,7 +17,6 @@ import java.io.Serializable;
 import org.eclipse.dataset.IErrorDataset;
 import org.eclipse.dataset.ILazyDataset;
 import org.eclipse.dataset.IMonitor;
-import org.eclipse.dataset.IndexIterator;
 import org.eclipse.dataset.PositionIterator;
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.SliceND;

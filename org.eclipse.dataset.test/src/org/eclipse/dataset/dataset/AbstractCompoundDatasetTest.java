@@ -16,7 +16,6 @@ import static org.junit.Assert.fail;
 
 import java.util.Arrays;
 
-import org.eclipse.dataset.IndexIterator;
 import org.eclipse.dataset.PositionIterator;
 import org.eclipse.dataset.impl.AbstractCompoundDataset;
 import org.eclipse.dataset.impl.AbstractDataset;
@@ -26,6 +25,7 @@ import org.eclipse.dataset.impl.CompoundIntegerDataset;
 import org.eclipse.dataset.impl.Dataset;
 import org.eclipse.dataset.impl.DatasetFactory;
 import org.eclipse.dataset.impl.DatasetUtils;
+import org.eclipse.dataset.impl.IndexIterator;
 import org.eclipse.dataset.impl.Maths;
 import org.eclipse.dataset.impl.RGBDataset;
 import org.eclipse.dataset.impl.Random;

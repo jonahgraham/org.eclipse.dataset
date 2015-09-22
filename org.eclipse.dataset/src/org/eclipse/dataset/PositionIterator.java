@@ -26,7 +26,7 @@ package org.eclipse.dataset;
  * </pre>
  *
  */
-public class PositionIterator extends IndexIterator {
+public class PositionIterator implements IDatasetIterator {
 	final private int[] shape;
 	final private int[] start;
 	final private int[] stop;

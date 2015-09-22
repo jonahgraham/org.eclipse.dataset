@@ -20,7 +20,7 @@ import java.util.TreeMap;
 import org.apache.commons.math.complex.Complex;
 import org.apache.commons.math.stat.descriptive.moment.Kurtosis;
 import org.apache.commons.math.stat.descriptive.moment.Skewness;
-import org.eclipse.dataset.IndexIterator;
+import org.eclipse.dataset.IDatasetIterator;
 import org.eclipse.dataset.PositionIterator;
 
 
@@ -155,7 +155,7 @@ public class Stats {
 		int[] qshape = AbstractDataset.squeezeShape(oshape, false);
 		Dataset qds = DatasetFactory.zeros(is, qshape, Dataset.FLOAT64);
 
-		IndexIterator qiter = qds.getIterator(true);
+		IDatasetIterator qiter = qds.getIterator(true);
 		int[] qpos = qiter.getPos();
 		int[] spos = oshape;
 
@@ -432,7 +432,7 @@ public class Stats {
 		if (is == 1) {
 			sk = new DoubleDataset(nshape);
 			ku = new DoubleDataset(nshape);
-			final IndexIterator qiter = sk.getIterator(true);
+			final IDatasetIterator qiter = sk.getIterator(true);
 			final int[] qpos = qiter.getPos();
 			final int[] spos = oshape;
 	
@@ -472,7 +472,7 @@ public class Stats {
 		} else {
 			sk = new CompoundDoubleDataset(is, nshape);
 			ku = new CompoundDoubleDataset(is, nshape);
-			final IndexIterator qiter = sk.getIterator(true);
+			final IDatasetIterator qiter = sk.getIterator(true);
 			final int[] qpos = qiter.getPos();
 			final int[] spos = oshape;
 			final Skewness[] s = new Skewness[is];
@@ -794,7 +794,7 @@ public class Stats {
 
 		Dataset result = DatasetFactory.zeros(is, oshape, dtype);
 
-		IndexIterator qiter = result.getIterator(true);
+		IDatasetIterator qiter = result.getIterator(true);
 		int[] qpos = qiter.getPos();
 		int[] spos;
 

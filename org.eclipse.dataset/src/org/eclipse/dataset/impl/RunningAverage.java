@@ -11,7 +11,6 @@ package org.eclipse.dataset.impl;
 
 import org.eclipse.dataset.IDataset;
 import org.eclipse.dataset.ILazyDataset;
-import org.eclipse.dataset.IndexIterator;
 
 /**
  * A running mean class

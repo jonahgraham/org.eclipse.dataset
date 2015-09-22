@@ -20,7 +20,6 @@ import java.util.Arrays;
 import org.apache.commons.math.complex.Complex;
 import org.apache.commons.math.stat.descriptive.SummaryStatistics;
 import org.eclipse.dataset.IDataset;
-import org.eclipse.dataset.IndexIterator;
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.internal.utils.MissingFromMath2;
 

@@ -15,8 +15,6 @@ package org.eclipse.dataset.impl;
 import java.util.Arrays;
 import java.util.List;
 
-import org.eclipse.dataset.IndexIterator;
-
 /**
  * Class to run over a single dataset with NumPy broadcasting to promote shapes
  * which have lower rank and outputs to a second dataset

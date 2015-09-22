@@ -33,7 +33,7 @@ import org.apache.commons.math.linear.RealMatrix;
 import org.apache.commons.math.linear.RealVector;
 import org.apache.commons.math.linear.SingularValueDecomposition;
 import org.apache.commons.math.linear.SingularValueDecompositionImpl;
-import org.eclipse.dataset.IndexIterator;
+import org.eclipse.dataset.IDatasetIterator;
 import org.eclipse.dataset.PositionIterator;
 import org.eclipse.dataset.internal.utils.MissingFromMath2;
 
@@ -980,7 +980,7 @@ public class LinearAlgebra {
 
 	private static double maxMinMatrixNorm(Dataset a, int d, boolean max) {
 		double n;
-		IndexIterator it;
+		IDatasetIterator it;
 		int[] pos;
 		int l;
 		it = a.getPositionIterator(d);

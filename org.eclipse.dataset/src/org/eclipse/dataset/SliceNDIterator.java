@@ -17,7 +17,7 @@ package org.eclipse.dataset;
  * <p>It allows a number of axes to be omitted and iterates over
  * the axes left over.</p>
  */
-public class SliceNDIterator extends IndexIterator {
+public class SliceNDIterator implements IDatasetIterator {
 	final private int[] shape;
 	final private int[] start;
 	final private int[] stop;

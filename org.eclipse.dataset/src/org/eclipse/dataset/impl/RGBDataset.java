@@ -12,7 +12,7 @@
 
 package org.eclipse.dataset.impl;
 
-import org.eclipse.dataset.IndexIterator;
+import org.eclipse.dataset.IDatasetIterator;
 
 /**
  * Class to hold colour datasets as red, green, blue tuples of short integers
@@ -157,8 +157,8 @@ public class RGBDataset extends CompoundShortDataset implements Cloneable {
 		}
 
 		IndexIterator riter = red.getIterator();
-		IndexIterator giter = green.getIterator();
-		IndexIterator biter = blue.getIterator();
+		IDatasetIterator giter = green.getIterator();
+		IDatasetIterator biter = blue.getIterator();
 
 		for (int i = 0; riter.hasNext() && giter.hasNext() && biter.hasNext();) {
 			data[i++] = (short) red.getElementLongAbs(riter.index);

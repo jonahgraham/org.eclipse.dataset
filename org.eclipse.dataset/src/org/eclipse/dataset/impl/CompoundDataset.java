@@ -13,7 +13,6 @@
 package org.eclipse.dataset.impl;
 
 import org.eclipse.dataset.IMonitor;
-import org.eclipse.dataset.IndexIterator;
 import org.eclipse.dataset.Slice;
 import org.eclipse.dataset.SliceND;
 

@@ -17,7 +17,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import org.apache.commons.lang.ArrayUtils;
-import org.eclipse.dataset.IndexIterator;
+import org.eclipse.dataset.IDatasetIterator;
 
 class InterpolatedPoint {
 
@@ -455,7 +455,7 @@ public class InterpolatorUtils {
 		DoubleDataset result = new DoubleDataset(resultSize);
 		
 		step[axisIndex] = dataset.getShapeRef()[axisIndex];
-		IndexIterator iter = dataset.getSliceIterator(start, stop, step);
+		IDatasetIterator iter = dataset.getSliceIterator(start, stop, step);
 		
 		int[] pos = iter.getPos();
 		int[] posEnd = new int[pos.length];
@@ -508,7 +508,7 @@ public class InterpolatorUtils {
 		DoubleDataset result = new DoubleDataset(resultSize);
 		
 		step[axisIndex] = dataset.getShapeRef()[axisIndex];
-		IndexIterator iter = dataset.getSliceIterator(start, stop, step);
+		IDatasetIterator iter = dataset.getSliceIterator(start, stop, step);
 		
 		int[] pos = iter.getPos();
 		int[] posEnd = new int[pos.length];

@@ -15,7 +15,6 @@ package org.eclipse.dataset.impl;
 
 import java.util.Arrays;
 
-import org.eclipse.dataset.IndexIterator;
 import org.eclipse.dataset.SliceND;
 
 /**

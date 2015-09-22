@@ -21,7 +21,6 @@ import java.util.List;
 import org.apache.commons.math.complex.Complex;
 import org.eclipse.dataset.BinaryOperation;
 import org.eclipse.dataset.IDataset;
-import org.eclipse.dataset.IndexIterator;
 import org.eclipse.dataset.PositionIterator;
 
 /**

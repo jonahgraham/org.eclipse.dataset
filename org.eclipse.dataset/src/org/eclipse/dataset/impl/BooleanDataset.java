@@ -14,8 +14,6 @@ package org.eclipse.dataset.impl;
 
 import java.text.MessageFormat;
 
-import org.eclipse.dataset.IndexIterator;
-
 
 /**
  * Extend boolean base dataset for boolean values

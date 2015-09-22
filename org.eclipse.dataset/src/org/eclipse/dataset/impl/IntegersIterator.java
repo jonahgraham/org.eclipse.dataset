@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.eclipse.dataset.IndexIterator;
+import org.eclipse.dataset.IDatasetIterator;
 import org.eclipse.dataset.PositionIterator;
 import org.eclipse.dataset.Slice;
 
@@ -31,7 +31,7 @@ public class IntegersIterator extends IndexIterator {
 	private int offset; // offset of index subspace in new position 
 	private int srank; // rank of subspace
 
-	final private IndexIterator it;
+	final private IDatasetIterator it;
 
 	/**
 	 * position in input shape

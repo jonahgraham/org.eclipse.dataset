@@ -21,7 +21,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.eclipse.dataset.IDataset;
-import org.eclipse.dataset.IndexIterator;
+import org.eclipse.dataset.IDatasetIterator;
 import org.eclipse.dataset.PositionIterator;
 import org.eclipse.dataset.Slice;
 
@@ -683,7 +683,7 @@ public class BooleanDatasetBase extends AbstractDataset {
 				while (siter.hasNext() && oiter.hasNext())
 					data[siter.index] = ads.getElementBooleanAbs(oiter.index); // GET_ELEMENT_WITH_CAST
 			} else {
-				final IndexIterator oiter = new PositionIterator(oshape);
+				final IDatasetIterator oiter = new PositionIterator(oshape);
 				final int[] pos = oiter.getPos();
 
 				while (siter.hasNext() && oiter.hasNext())

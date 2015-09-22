@@ -16,8 +16,8 @@ import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.Arrays;
 
-import org.eclipse.dataset.IndexIterator;
 import org.eclipse.dataset.impl.Dataset;
+import org.eclipse.dataset.impl.IndexIterator;
 import org.junit.Assert;
 
 public class TestUtils {
