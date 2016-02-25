@@ -5,9 +5,8 @@
 	<packaging>eclipse-test-plugin</packaging>
 	<parent>
 		<groupId>org.eclipse.dataset</groupId>
-		<artifactId>org.eclipse.dataset.releng</artifactId>
+                <artifactId>org.eclipse.dataset.root</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
-		<relativePath>../releng/org.eclipse.dataset.releng</relativePath>
 	</parent>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
