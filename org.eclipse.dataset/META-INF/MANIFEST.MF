@@ -4,14 +4,13 @@ Bundle-Name: Dataset
 Bundle-SymbolicName: org.eclipse.dataset
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Diamond Light Source
-Require-Bundle: org.apache.commons.math;bundle-version="[2.1.0,2.2.0)",
+Require-Bundle: org.apache.commons.math3;bundle-version="[3.2.0,3.3.0)",
  org.apache.commons.lang;bundle-version="[2.6.0,2.7.0)",
  org.slf4j.api;bundle-version="1.7.2"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.eclipse.dataset,
  org.eclipse.dataset.coords,
  org.eclipse.dataset.function,
- org.eclipse.dataset.internal.utils;x-internal:=true,
  org.eclipse.dataset.io,
  org.eclipse.dataset.metadata,
  org.eclipse.dataset.slicer

@@ -13,10 +13,10 @@
 package org.eclipse.dataset;
 
 
-import org.apache.commons.math.random.MersenneTwister;
-import org.apache.commons.math.random.RandomData;
-import org.apache.commons.math.random.RandomDataImpl;
-import org.apache.commons.math.random.RandomGenerator;
+import org.apache.commons.math3.random.MersenneTwister;
+import org.apache.commons.math3.random.RandomData;
+import org.apache.commons.math3.random.RandomDataImpl;
+import org.apache.commons.math3.random.RandomGenerator;
 import org.eclipse.dataset.io.ILazyLoader;
 
 /**

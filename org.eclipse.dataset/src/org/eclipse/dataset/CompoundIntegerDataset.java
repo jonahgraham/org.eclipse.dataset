@@ -16,7 +16,7 @@ package org.eclipse.dataset;
 
 import java.util.Arrays;
 
-import org.apache.commons.math.complex.Complex;
+import org.apache.commons.math3.complex.Complex;
 
 /**
  * Extend compound dataset for int values // PRIM_TYPE
